@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>The Bitcoin Family Bank | Block Wall Street</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A1428; --panel:#101C36; --panel2:#17274A; --ink:#EEE8D8; --muted:#9AA6BF;
+  --gold:#D9AE52; --gold2:#F0CB7A; --line:#25365B; --green:#58C79B; --red:#F26B5F; --amber:#E9A23B;
+  --head:"Bebas Neue",Impact,"Arial Narrow",sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+a{color:var(--gold2)}
+.shell{display:grid;grid-template-columns:300px minmax(0,1fr);min-height:100vh}
+nav#nav{position:sticky;top:0;height:100vh;overflow:auto;background:var(--panel);border-right:1px solid var(--line);padding:22px 18px 28px}
+.brand{font-family:var(--mono);font-size:12.5px;color:var(--gold)}
+.navtitle{font-family:var(--head);font-size:30px;line-height:1;margin:6px 0 14px}
+.bar{height:6px;background:var(--panel2);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.barlbl{font-family:var(--mono);font-size:12px;color:var(--muted);margin:6px 0 16px}
+nav h4{font-family:var(--head);font-weight:400;font-size:19px;margin:18px 0 4px;color:var(--gold)}
+nav ol{list-style:none;margin:0;padding:0}
+nav li button{display:flex;gap:10px;align-items:baseline;width:100%;text-align:left;background:none;border:0;border-left:3px solid transparent;padding:7px 8px 7px 10px;cursor:pointer;color:var(--ink);font-size:15.5px;border-radius:0 4px 4px 0}
+nav li button:hover{background:var(--panel2)}
+nav li button[aria-current=page]{border-left-color:var(--gold);background:var(--panel2);font-weight:600}
+nav .tick{font-family:var(--mono);font-size:12px;width:14px;color:var(--green);flex:none}
+.reset{margin-top:22px;background:none;border:0;color:var(--muted);font-size:13px;text-decoration:underline;cursor:pointer;padding:0}
+main{padding:34px 40px 70px;min-width:0}
+.panel{max-width:800px;margin:0 auto}
+.panel[hidden]{display:none}
+.panel h2{font-family:var(--head);font-weight:400;font-size:clamp(42px,6vw,68px);line-height:.98;margin:0 0 6px;letter-spacing:.01em}
+.panel h2:focus{outline:none}
+.lede{font-size:19px;color:var(--muted);max-width:60ch;margin:0 0 22px}
+.panel h3{font-size:21px;font-weight:600;margin:30px 0 6px}
+.panel p{max-width:68ch;margin:0 0 14px}
+.panel ul,.panel ol.txt{max-width:68ch;padding-left:22px;margin:0 0 14px}
+.panel li{margin:4px 0}
+.callout{border-left:4px solid var(--gold);background:var(--panel);padding:12px 18px;margin:20px 0;border-radius:0 6px 6px 0;max-width:72ch}
+.callout.warn{border-color:var(--amber)} .callout.risk{border-color:var(--red)}
+.callout p:last-child{margin-bottom:0}
+.callout b.t{font-family:var(--head);font-weight:400;font-size:22px;color:var(--gold);display:block;margin-bottom:2px}
+.callout.warn b.t{color:var(--amber)} .callout.risk b.t{color:var(--red)}
+table{border-collapse:collapse;width:100%;margin:12px 0 18px;font-size:15.5px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel);margin:12px 0 18px}
+.tw table{margin:0;min-width:520px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--gold);font-size:14.5px;background:var(--panel2)}
+tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-family:var(--mono);font-size:14px}
+.map button.row{all:unset;box-sizing:border-box;display:grid;grid-template-columns:1fr 24px 1fr;gap:14px;align-items:center;width:100%;padding:14px 16px;cursor:pointer;border-bottom:1px solid var(--line)}
+.map button.row:hover{background:var(--panel2)}
+.map button.row:focus-visible{outline:2px solid var(--gold2);outline-offset:-2px}
+.map .arrow{color:var(--gold);font-family:var(--mono);text-align:center}
+.map .det{padding:0 16px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
+.map .det[hidden]{display:none}
+.map .l{color:var(--muted)} .map .r{font-weight:600}
+.map{border:1px solid var(--line);border-radius:6px;background:var(--panel);margin:12px 0 18px;max-width:760px}
+.map>div:last-child .row,.map>div:last-child .det{border-bottom:0}
+details.qa{border:1px solid var(--line);border-radius:6px;background:var(--panel);margin:8px 0;max-width:72ch}
+details.qa summary{cursor:pointer;padding:11px 16px;font-weight:500;list-style:none}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::before{content:"+";font-family:var(--mono);color:var(--gold);margin-right:10px}
+details.qa[open] summary::before{content:"\2212"}
+details.qa p{padding:0 16px 12px;margin:0;color:var(--ink)}
+.checks{list-style:none;padding:0!important;margin:10px 0 18px!important;max-width:72ch}
+.checks li{margin:0;border-bottom:1px solid var(--line)}
+.checks label{display:flex;gap:12px;align-items:flex-start;padding:10px 4px;cursor:pointer}
+.checks input{margin-top:5px;width:18px;height:18px;accent-color:var(--gold);flex:none}
+.checks input:checked+span{color:var(--muted);text-decoration:line-through}
+.btn{background:var(--gold);color:#0A1428;border:0;border-radius:4px;padding:10px 18px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--gold2)}
+.btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn.ghost:hover{background:var(--panel2)}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.calc{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:26px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px;margin:16px 0 22px}
+@media (max-width:760px){.calc{grid-template-columns:1fr}}
+.calc label{display:block;font-size:14.5px;margin:0 0 12px}
+.calc input,.calc select,.builder input[type=text],.builder input[type=number],.builder select{display:block;width:100%;margin-top:4px;padding:8px 10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;font-family:var(--mono);font-size:14.5px}
+.out dl{margin:0 0 14px}
+.out .r{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--line)}
+.out dt{color:var(--muted)} .out dd{margin:0;font-family:var(--mono);text-align:right}
+.big{font-family:var(--head);font-size:44px;line-height:1;color:var(--gold2)}
+.ok{color:var(--green)}.warnc{color:var(--amber)}.bad{color:var(--red)}
+.builder{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px;margin:16px 0}
+.builder fieldset{border:0;padding:0;margin:0 0 14px}
+.builder legend{font-weight:600;padding:0;margin-bottom:4px}
+.builder .cb{display:flex;gap:10px;align-items:center;margin:4px 0;font-size:15.5px}
+.builder .cb input{accent-color:var(--gold);width:17px;height:17px}
+.builder .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.builder .g2{grid-template-columns:1fr}}
+.doc{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:18px;font-family:var(--mono);font-size:13.5px;line-height:1.65;max-height:480px;overflow:auto;margin:12px 0}
+textarea.notes{width:100%;min-height:110px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px;resize:vertical;font-size:16px}
+.foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);max-width:68ch}
+.foot h3{font-family:var(--head);font-weight:400;font-size:24px;margin:0 0 6px;color:var(--gold)}
+.pager{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.pager .sp{flex:1}
+.rings{max-width:520px;margin:10px auto 22px}
+.rings svg{display:block;width:100%;height:auto}
+.rings a{cursor:pointer}
+.ring{stroke:var(--gold);stroke-width:1.5;transition:fill .2s}
+.rings a:hover .ring,.rings a:focus .ring{fill:var(--panel2)}
+.rings text{font-family:var(--head);font-size:21px;fill:var(--ink);letter-spacing:.03em;pointer-events:none}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
+.fc-wrap{max-width:560px}
+.fc{display:block;width:100%;min-height:210px;text-align:center;background:var(--panel);border:2px solid var(--gold);border-radius:8px;padding:30px 26px;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px}
+.fc .term{font-family:var(--head);font-size:42px;line-height:1;color:var(--gold2)}
+.fc .def{font-size:18px}
+.fc .hint{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.fcbar{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0;align-items:center}
+.formulas td:first-child{font-weight:600;width:34%}
+.formulas td:last-child{font-family:var(--mono);font-size:14px}
+.q-opt{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:8px 0;cursor:pointer}
+.q-opt:hover:not([disabled]){border-color:var(--gold)}
+.q-opt.right{border-color:var(--green);background:rgba(88,199,155,.12)}
+.q-opt.wrong{border-color:var(--red);background:rgba(242,107,95,.12)}
+.q-opt[disabled]{cursor:default}
+.q-meta{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.q-q{font-size:21px;font-weight:600;margin:6px 0 10px;max-width:60ch}
+.q-exp{margin-top:10px;padding:12px 16px;border-left:4px solid var(--gold);background:var(--panel)}
+.score{font-family:var(--head);font-size:84px;line-height:1;color:var(--gold2)}
+.menu{display:none}
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr}
+  nav#nav{position:fixed;inset:0 20% 0 0;z-index:20;height:100%;transform:translateX(-102%);transition:transform .25s;max-width:340px}
+  nav#nav.open{transform:none}
+  .menu{display:block;position:sticky;top:0;z-index:15;width:100%;background:var(--panel);border:0;border-bottom:1px solid var(--line);padding:12px 18px;text-align:left;font-weight:600;cursor:pointer}
+  main{padding:24px 18px 60px}
+}
+
+.simbtn{width:100%;margin:0 0 6px;padding:9px 12px}
+.panel.wide{max-width:1180px}
+.panel.wide .rd{max-width:800px;margin-left:auto;margin-right:auto}
+.panel.wide .foot{max-width:800px;margin-left:auto;margin-right:auto}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-top:18px;margin-bottom:22px}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 18px;cursor:pointer;font-weight:600;color:var(--muted);font-size:16px}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--gold)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.chips button{background:transparent;border:1px solid var(--line);border-radius:999px;padding:5px 14px;cursor:pointer;font-size:14.5px}
+.chips button[aria-pressed=true]{background:var(--gold);color:#0A1428;border-color:var(--gold);font-weight:600}
+.exp{padding:20px 0;border-bottom:1px solid var(--line)}
+.exp:first-child{padding-top:4px}
+.exp h3{margin:0 0 4px;font-size:22px}
+.exp .vars{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.exp .done{display:flex;gap:10px;align-items:center;margin-top:8px;font-size:15px;color:var(--muted)}
+.exp .done input{width:18px;height:18px;accent-color:var(--gold)}
+.banner{border-left:4px solid var(--gold);background:var(--panel);padding:10px 16px;margin-bottom:10px;border-radius:0 6px 6px 0;max-width:900px}
+.banner b{color:var(--gold2)}
+.simbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.simbox{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--bg)}
+.simbox iframe{display:block;width:100%;height:1500px;border:0;background:var(--bg)}
+.fullbar{display:none}
+.simbox.full{position:fixed;inset:0;z-index:60;border:0;border-radius:0;display:flex;flex-direction:column}
+.simbox.full iframe{flex:1;height:auto}
+.simbox.full .fullbar{display:flex;gap:10px;padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--line);align-items:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Course menu</button>
+<div class="shell">
+<nav id="nav" aria-label="Course navigation">
+  <div class="brand">Block Wall Street</div>
+  <div class="navtitle">The Bitcoin Family Bank</div>
+  <div class="bar" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" id="barA"><i id="barFill"></i></div>
+  <div class="barlbl" id="barLbl"></div>
+  <button class="btn ghost simbtn" id="navSim" type="button">Open the simulator</button>
+  <div id="navList"></div>
+  <button class="reset" id="resetBtn" type="button">Reset my progress and notes</button>
+</nav>
+
+<main id="main">
+
+<!-- 0 START -->
+<section class="panel" id="p0" hidden>
+  <h2 tabindex="-1">The Bitcoin Family Bank</h2>
+  <p class="lede">Borrow against Bitcoin instead of selling it, lend inside the family, and protect the whole system so it lasts past the person who built it.</p>
+  <p>This course takes the idea behind infinite banking, where you become the financier for your own household, and rebuilds it on a Bitcoin foundation. You will learn what carries over, what breaks, and what rules keep a family from losing its Bitcoin to a liquidation.</p>
+  <h3>The system in five layers</h3>
+  <p>Each layer sits on the one inside it. Select a ring to jump to that lesson.</p>
+  <div class="rings">
+    <svg viewBox="0 0 520 520" role="group" aria-label="Five layers of the Bitcoin family bank, from the vault at the center to generations at the edge">
+      <a href="#p7"><circle class="ring" cx="260" cy="260" r="248" fill="#0D1830"/><title>Generations</title><text x="260" y="36" text-anchor="middle">Generations</text></a>
+      <a href="#p6"><circle class="ring" cx="260" cy="260" r="206" fill="#0F1B36" stroke-dasharray="7 6"/><title>The moat</title><text x="260" y="78" text-anchor="middle">The moat</text></a>
+      <a href="#p5"><circle class="ring" cx="260" cy="260" r="164" fill="#122042"/><title>Family pool</title><text x="260" y="120" text-anchor="middle">Family pool</text></a>
+      <a href="#p4"><circle class="ring" cx="260" cy="260" r="122" fill="#162850"/><title>The bank</title><text x="260" y="162" text-anchor="middle">The bank</text></a>
+      <a href="#p3"><circle class="ring" cx="260" cy="260" r="80" fill="#D9AE52"/><title>The vault</title><text x="260" y="270" text-anchor="middle" style="fill:#0A1428;font-size:28px">The vault</text></a>
+    </svg>
+  </div>
+  <h3>By the end you can</h3>
+  <ul>
+    <li>Explain how infinite banking works and where a Bitcoin version differs.</li>
+    <li>Calculate loan-to-value, a liquidation price, and the loan size that survives a 70% drop.</li>
+    <li>Price a family loan so the pool earns more than the Aave loan costs.</li>
+    <li>Draft a family constitution and a checklist for your attorney.</li>
+    <li>Stress test a plan in the simulator before risking real Bitcoin.</li>
+  </ul>
+  <h3>How the module works</h3>
+  <p>Open the lessons in order, or jump around from the menu. Each lesson ends with questions you can check yourself on, a notes box, and a button to mark it complete. Your progress, checklists, and notes are saved in this browser only. The simulator is built in, so you can open it any time from the button at the top of the menu. The study guide and final quiz come last.</p>
+  <div class="callout warn"><b class="t">Education, not advice</b><p>This is a teaching course. It is not financial, tax, or legal advice. Borrowing against Bitcoin can lead to the loss of that Bitcoin. Rules on taxes, trusts, and lending differ by country and state. Talk to a CPA and an attorney who work with digital assets before you act.</p></div>
+</section>
+
+<!-- 1 IDEA -->
+<section class="panel" id="p1" hidden>
+  <h2 tabindex="-1">The idea behind infinite banking</h2>
+  <p class="lede">You already finance everything you own. The question is who earns the interest.</p>
+  <p>Almost every large purchase is financed. If you borrow from a bank, you pay the bank interest. If you pay cash, you give up the interest that money could have earned. Either way, someone else collects. Nelson Nash, who wrote <i>Becoming Your Own Banker</i>, argued that you can capture some of that flow for yourself by building a pool of capital you control and borrowing from it.</p>
+  <h3>How it works with whole life insurance</h3>
+  <ol class="txt">
+    <li>You pay premiums into a whole life policy built to grow cash value quickly.</li>
+    <li>The cash value is yours to borrow against. The insurer lends you money using the cash value as collateral, and your policy keeps growing.</li>
+    <li>You repay the loan with interest. The "honest banker" rule is to repay on a schedule as if a stranger lent it, so the pool refills.</li>
+    <li>If you never repay, the loan is taken out of the death benefit when you die.</li>
+  </ol>
+  <h3>Why people like it</h3>
+  <p>Access to cash without a credit application, a growing asset with contractual guarantees, and a habit of paying yourself back. The deeper point is behavioral: you stop treating borrowing as something only banks do.</p>
+  <div class="callout risk"><b class="t">The honest limits</b><p>Cash value builds slowly in the early years and the policy carries commissions and costs. A policy can lapse if loans plus interest outgrow its cash value, and there are tax traps if it is funded the wrong way. Salespeople often oversell it. Treat infinite banking as a way of behaving, which is owning your capital base and financing yourself, rather than as a product you must buy.</p></div>
+  <h3>Three ideas to keep</h3>
+  <ul>
+    <li><b>Own the capital base.</b> Build an asset you control that others do not.</li>
+    <li><b>Borrow against it; do not sell it.</b> The asset keeps working while you use the cash.</li>
+    <li><b>Be the bank.</b> Pay interest back into your own system instead of an outsider's.</li>
+  </ul>
+  <h3>Check yourself</h3>
+  <details class="qa"><summary>Where does the interest go when you borrow from a bank, and where does it go when you pay cash?</summary><p>To the bank when you borrow. When you pay cash, you lose the interest the cash could have earned, so the cost is hidden.</p></details>
+  <details class="qa"><summary>What does the "honest banker" rule require?</summary><p>Repaying your own loan on a schedule, with interest, so the pool refills. Without it the system is just a debt you owe yourself.</p></details>
+</section>
+
+<!-- 2 TRANSLATION -->
+<section class="panel" id="p2" hidden>
+  <h2 tabindex="-1">Translating it to Bitcoin</h2>
+  <p class="lede">Every piece of the policy has a Bitcoin counterpart. Each counterpart also has a catch.</p>
+  <p>Select a row to see the catch.</p>
+  <div class="map" id="mapRows"></div>
+  <h3>What really changes</h3>
+  <p>A policy's cash value is a contract. It does not fall when markets fall, and the insurer cannot force a sale because prices dropped. Bitcoin has no such promise. Its price can fall 70% while your loan stays the same size. That one difference is why this course spends so much time on loan size, buffers, and rules.</p>
+  <p>Bitcoin also has upside a policy does not: an asset that can grow in value, held without an intermediary. Some families will keep both, using a policy as the steady layer and Bitcoin as the growth layer. They do different jobs.</p>
+  <div class="callout"><b class="t">The one-line version</b><p>A Bitcoin family bank is a vault you never sell, a loan you can survive, a pool you run honestly, and a legal moat around all of it.</p></div>
+  <h3>Check yourself</h3>
+  <details class="qa"><summary>Name the biggest structural difference between a policy loan and a Bitcoin-backed loan.</summary><p>A Bitcoin-backed loan can be liquidated if the collateral falls too far. A policy loan has no margin call, though a policy can still lapse if its loans outgrow the cash value.</p></details>
+  <details class="qa"><summary>Why does the Bitcoin version need its own inheritance plan?</summary><p>Bitcoin has no built-in beneficiary. Without keys, instructions, and legal structure, heirs may not be able to reach it.</p></details>
+</section>
+
+<!-- 3 VAULT -->
+<section class="panel" id="p3" hidden>
+  <h2 tabindex="-1">Layer 1: The vault</h2>
+  <p class="lede">The vault is Bitcoin you do not sell. Everything else rests on keeping it safe.</p>
+  <p>The vault is your collateral and your long-term savings in one. Set a rule early: the core stack is not sold to fund spending. You borrow against it instead. The rule works only if you can always reach the Bitcoin, which comes down to custody.</p>
+  <h3>Custody options</h3>
+  <div class="tw"><table>
+    <tr><th>Option</th><th>How it works</th><th>Tradeoff</th></tr>
+    <tr><td>Single hardware wallet</td><td>One device, one seed phrase</td><td>Simple, but one lost or stolen backup is a single point of failure</td></tr>
+    <tr><td>Multisig, such as 2 of 3</td><td>Any two of three keys move funds. Keys sit in separate places or with separate family members</td><td>Survives one lost key. Takes more setup and clear written instructions</td></tr>
+    <tr><td>Collaborative custody</td><td>You hold keys and a provider holds one, so neither can move funds alone</td><td>Helps with recovery and inheritance. Adds a company you depend on</td></tr>
+    <tr><td>Exchange account</td><td>A company holds the coins for you</td><td>Not a vault. You hold a claim on a company, with counterparty risk</td></tr>
+  </table></div>
+  <div class="callout warn"><b class="t">Test recovery before you borrow</b><p>Practice restoring the wallet from backups on a fresh device while the amount is small and there is no loan. A key problem discovered after you owe money is the worst time to learn it.</p></div>
+  <div class="callout warn"><b class="t">Borrowing on Aave moves part of the vault</b><p>Aave lends against wrapped Bitcoin held in a smart contract, not against coins in cold storage. To borrow, you swap some Bitcoin for a wrapped version and post it there. Decide how much of the vault stays in cold storage as the untouched core and how much goes in as collateral, and write it down.</p></div>
+  <h3>Vault checklist</h3>
+  <ul class="checks" data-key="vault">
+    <li>Decide the core stack: the amount that is never sold for spending.</li>
+    <li>Choose a custody setup and write down why.</li>
+    <li>Store backups in separate places that a single event cannot reach.</li>
+    <li>Restore the wallet from backup on a fresh device and confirm the balance.</li>
+    <li>Write recovery instructions in plain language that a trusted person could follow.</li>
+    <li>Set a recurring deposit, so the vault grows on a schedule.</li>
+    <li>Decide how much stays in cold storage and how much is posted to Aave as collateral.</li>
+  </ul>
+  <h3>Check yourself</h3>
+  <details class="qa"><summary>Why is an exchange account not a vault?</summary><p>The exchange holds the coins and you hold a claim on the company. If it fails or freezes withdrawals, you may not reach your Bitcoin.</p></details>
+  <details class="qa"><summary>Why restore from backup before taking a loan?</summary><p>It proves you can recover the keys. A loan raises the stakes, because losing access while in debt can mean losing the collateral and still owing money.</p></details>
+</section>
+
+<!-- 4 BANK -->
+<section class="panel" id="p4" hidden>
+  <h2 tabindex="-1">Layer 2: The bank</h2>
+  <p class="lede">You borrow stablecoins against the vault. The loan must be small enough to survive a crash.</p>
+  <p>The key measure is loan-to-value (LTV): what you owe divided by what the vault is worth. The lending platform sets a liquidation LTV. On Aave a smart contract enforces it: if you reach it, a liquidator repays part of your debt and takes some of your Bitcoin, plus a bonus. No one calls you first. Bitcoin can drop 70% or more, and LTV rises as the price falls. A loan that looks tiny in a bull market can be fatal in a crash.</p>
+  <h3>Calculator: how far can it fall?</h3>
+  <div class="calc">
+    <div>
+      <label>Bitcoin in the vault<input type="number" id="lc-btc" value="2" min="0" step="0.01"></label>
+      <label>Bitcoin price ($)<input type="number" id="lc-price" value="100000" min="1" step="1000"></label>
+      <label>Amount borrowed ($)<input type="number" id="lc-borrow" value="40000" min="0" step="1000"></label>
+      <label>Aave's liquidation threshold for Bitcoin (%)<input type="number" id="lc-liq" value="80" min="10" max="99" step="1"></label>
+    </div>
+    <div class="out" id="lc-out"></div>
+  </div>
+  <p>Aave sets the real liquidation line, and it can change, so use the number shown on Aave today. Aave also shows a health factor: your collateral's liquidation value divided by your debt. Below 1.0, the loan can be liquidated.</p>
+  <h3>Where the loan comes from</h3>
+  <div class="tw"><table>
+    <tr><th>Source</th><th>How it works</th><th>Watch for</th></tr>
+    <tr><td>Onchain lending, such as Aave</td><td>You post wrapped Bitcoin in a smart contract and borrow stablecoins that other users supplied. There is no application and no person to approve you</td><td>Smart contract risk, wrapper risk, automatic liquidation, and variable rates. The interest goes to the people who supplied the stablecoins, not back to you</td></tr>
+    <tr><td>Bitcoin-backed lenders</td><td>A company lends dollars or stablecoins against your coins. Examples include Ledn and Unchained</td><td>Counterparty risk and terms that can change. Check how collateral is held</td></tr>
+  </table></div>
+  <div class="callout risk"><b class="t">Lenders and protocols can fail</b><p>Several crypto lenders went bankrupt in 2022, and customers found their collateral caught in the proceedings. Learn whether a lender can reuse your collateral, who holds the keys, and what happens if the company fails. On Aave there is no company to go bankrupt, but the code, the wrapped-Bitcoin issuer, and the price feeds that trigger liquidations can still fail.</p></div>
+  <h3>Rules that keep the bank alive</h3>
+  <ul>
+    <li><b>Cap the loan.</b> Choose the cap by working backwards from a 70% drop, as the calculator shows.</li>
+    <li><b>Keep a cash buffer.</b> Hold stablecoins you can use to repay part of the loan in a hurry.</li>
+    <li><b>Set alerts.</b> Get a warning well before the liquidation line.</li>
+    <li><b>Write down the plan.</b> Decide in advance what you will do at each LTV level, so you do not decide in a panic.</li>
+  </ul>
+  <p>Borrowing is generally not treated as a sale, but tax rules and the treatment of interest depend on your situation. Confirm with a CPA.</p>
+  <h3>Check yourself</h3>
+  <details class="qa"><summary>You borrow 20% of the vault's value and the price falls 70%. What is your LTV?</summary><p>About 67%. The debt stays the same while the vault shrinks to 30% of its value: 20 ÷ 30. Interest would push it higher.</p></details>
+  <details class="qa"><summary>Why can a loan be safe at the start and dangerous later?</summary><p>LTV changes with price. The debt is fixed in dollars while the collateral swings, so a fall raises LTV even though you borrowed nothing more.</p></details>
+</section>
+
+<!-- 5 POOL -->
+<section class="panel" id="p5" hidden>
+  <h2 tabindex="-1">Layer 3: The family pool</h2>
+  <p class="lede">The borrowed money goes into a pool the family lends from. Interest that family members pay stays in the family.</p>
+  <p>This is the honest banker loop. Family members, or family businesses, borrow from the pool, sign simple terms, and repay with interest. The pool then pays the interest on the Aave loan and keeps the rest. In a policy, the insurer runs this machinery. Here, the family has to run it.</p>
+  <h3>Where the pool's money comes from</h3>
+  <p>You are not borrowing from an outside person or company. The pool is funded from your own side, and Aave is the machinery that lets you do it without selling Bitcoin:</p>
+  <ul>
+    <li><b>Stablecoins borrowed against the vault.</b> Aave lends them against the Bitcoin you post. You pay Aave's variable rate on every dollar, lent out or not, and the loan can be liquidated.</li>
+    <li><b>Your own stablecoins.</b> New savings or earnings you put in directly. There is no borrowing cost and no liquidation, so this is the safest source.</li>
+    <li><b>Income from outside yield farming.</b> Earnings from pools or lending outside the family bank that you route in. Treat it as income that can shrink, not a promise.</li>
+  </ul>
+  <p>One thing to be clear about: the Aave interest does not come back to you. It goes to the people who supplied the stablecoins. Only the interest your family pays the pool stays in your system.</p>
+  <h3>Set the rate with your Aave borrowing cost in mind</h3>
+  <p>The pool owes Aave interest on all the money it borrowed, but it earns interest only on the part it lends out, and some loans go unpaid. The cash you do not lend can earn something too, so there is a box for that. A family rate that looks generous can still leave the pool behind. Try your own numbers below.</p>
+  <div class="calc">
+    <div>
+      <label>Stablecoins borrowed from Aave against the vault ($)<input type="number" id="sc-borrow" value="100000" min="0" step="1000"></label>
+      <label>Share lent to the family (%)<input type="number" id="sc-util" value="70" min="0" max="100" step="5"></label>
+      <label>Rate the family pays (% a year)<input type="number" id="sc-fam" value="12" min="0" step="0.5"></label>
+      <label>Loans that go bad (% a year)<input type="number" id="sc-bad" value="3" min="0" step="0.5"></label>
+      <label>Aave's borrow rate (% a year)<input type="number" id="sc-lend" value="8" min="0" step="0.5"></label>
+      <label>Yield on the cash you do not lend (% a year)<input type="number" id="sc-idle" value="0" min="0" step="0.5"></label>
+    </div>
+    <div class="out" id="sc-out"></div>
+  </div>
+  <h3>Running the pool well</h3>
+  <ul>
+    <li><b>Put every loan in writing.</b> Amount, rate, repayment schedule, and what happens if a payment is missed.</li>
+    <li><b>Start small.</b> Make the first loans small enough that a default is a lesson rather than a crisis.</li>
+    <li><b>Keep cash back.</b> Cash you do not lend is the buffer that rescues the bank layer in a crash.</li>
+    <li><b>Treat the pool as separate.</b> Keep its records apart from household spending.</li>
+    <li><b>Enforce the terms kindly and consistently.</b> Quiet forgiveness teaches the family the rules are optional.</li>
+  </ul>
+  <div class="callout"><b class="t">The honest result</b><p>With the numbers above, lending at a modest premium to Aave's rate loses a little once bad loans and idle cash are counted. The family bank pays when the borrowed money earns more than it costs, such as funding a family business with real returns. The pool alone rarely does that.</p></div>
+  <h3>Check yourself</h3>
+  <details class="qa"><summary>Why does the pool pay interest on all the borrowed money but earn on only part of it?</summary><p>Aave charges on the full balance. The pool earns only on the portion lent out, and the rest sits in cash as a buffer.</p></details>
+  <details class="qa"><summary>What is the break-even family rate?</summary><p>Aave's cost per dollar actually lent, less anything the idle cash earns, plus the share of loans that go bad. The calculator shows it for your inputs.</p></details>
+  <details class="qa"><summary>If the money comes from my own Bitcoin, why is there interest at all?</summary><p>Because the stablecoins come from the people who supplied them to Aave, not from your Bitcoin. Your Bitcoin is only the collateral. Aave pays those suppliers, and you pay Aave. The only interest that stays in the family is what family members pay the pool.</p></details>
+</section>
+
+<!-- 6 MOAT -->
+<section class="panel" id="p6" hidden>
+  <h2 tabindex="-1">Layer 4: The moat</h2>
+  <p class="lede">A strong vault can still be lost to death, divorce, debt, or disagreement. The moat is the legal and human structure around it.</p>
+  <p>Wealthy families have long built layers of protection around what they own. The same logic applies to Bitcoin, with an extra problem: coins that nobody can reach are gone. These are the four threats and the tools that address them.</p>
+  <div class="tw"><table>
+    <tr><th>Threat</th><th>What can go wrong</th><th>Tools to discuss with your attorney</th></tr>
+    <tr><td>Death</td><td>Heirs cannot find or move the Bitcoin, or it passes in a messy way</td><td>Multisig with heir access, written recovery instructions, a trust, a will, and possibly life insurance for liquidity</td></tr>
+    <tr><td>Divorce</td><td>The vault is split or must be sold to pay a settlement</td><td>Prenuptial or postnuptial agreements and the way assets are titled</td></tr>
+    <tr><td>Debt and lawsuits</td><td>Creditors reach assets held in your own name</td><td>Entity and trust structures, liability insurance, and keeping risky activity separate</td></tr>
+    <tr><td>Disagreement</td><td>Siblings or partners fight over loans, spending, or a sale</td><td>A family constitution, named trustees, and written voting rules</td></tr>
+  </table></div>
+  <div class="callout risk"><b class="t">No structure is a guarantee</b><p>How well trusts and entities protect assets depends on the type of structure, the state or country, and how you use it. A structure set up wrongly, or after trouble starts, may protect nothing. Hire a specialist who has handled digital assets.</p></div>
+  <h3>Moat checklist for your attorney meeting</h3>
+  <ul class="checks" data-key="moat">
+    <li>List what you own and how each item is titled today.</li>
+    <li>Ask which trust or entity structure fits your goals and your state.</li>
+    <li>Ask how a trust or entity should hold Bitcoin and its keys.</li>
+    <li>Decide who the trustees and backup trustees are.</li>
+    <li>Ask how heirs get access, and how long it takes.</li>
+    <li>Ask whether a life insurance policy belongs beside the Bitcoin.</li>
+    <li>Bring your draft family constitution from the next lesson.</li>
+  </ul>
+  <h3>Check yourself</h3>
+  <details class="qa"><summary>Which of the four threats is a people problem rather than a legal one?</summary><p>Disagreement. A written constitution, clear roles, and regular meetings settle it better than a legal structure alone.</p></details>
+  <details class="qa"><summary>Why set up protections before trouble starts?</summary><p>Moving assets into a structure after a lawsuit or claim appears can be undone by a court. Early, ordinary planning is far stronger.</p></details>
+</section>
+
+<!-- 7 GENERATIONS -->
+<section class="panel" id="p7" hidden>
+  <h2 tabindex="-1">Layer 5: Generations</h2>
+  <p class="lede">Systems fail when the next generation inherits money without the knowledge or rules to use it.</p>
+  <p>You will often hear that most wealthy families lose their wealth by the third generation. The exact figures are debated, but the pattern is common enough to plan for. The usual cause is a lack of preparation and agreement, not a shortage of assets. A written set of family rules is the cure.</p>
+  <h3>Build your family constitution</h3>
+  <p>Fill in the form to generate a first draft. Bring it to your family and your attorney. Change anything that does not fit.</p>
+  <div class="builder" id="builder">
+    <div class="g2">
+      <label>Family name<input type="text" id="b-name" value="" placeholder="The Johnson Family Bank"></label>
+      <label>Trustees (names)<input type="text" id="b-trust" value="" placeholder="Name, Name, Name"></label>
+    </div>
+    <div class="g2">
+      <fieldset><legend>Who may borrow</legend>
+        <div class="cb"><input type="checkbox" id="bw1" checked><label for="bw1">Spouses</label></div>
+        <div class="cb"><input type="checkbox" id="bw2" checked><label for="bw2">Adult children</label></div>
+        <div class="cb"><input type="checkbox" id="bw3"><label for="bw3">Grandchildren aged 25 and over</label></div>
+        <div class="cb"><input type="checkbox" id="bw4" checked><label for="bw4">Family-owned businesses</label></div>
+      </fieldset>
+      <fieldset><legend>Approved purposes</legend>
+        <div class="cb"><input type="checkbox" id="bp1" checked><label for="bp1">Education</label></div>
+        <div class="cb"><input type="checkbox" id="bp2" checked><label for="bp2">Buying a home</label></div>
+        <div class="cb"><input type="checkbox" id="bp3" checked><label for="bp3">Starting or growing a business</label></div>
+        <div class="cb"><input type="checkbox" id="bp4"><label for="bp4">Emergencies</label></div>
+        <div class="cb"><input type="checkbox" id="bp5"><label for="bp5">Vehicles</label></div>
+      </fieldset>
+    </div>
+    <div class="g2">
+      <label>Largest loan to one borrower (% of the pool)<input type="number" id="b-max" value="10" min="1" max="100"></label>
+      <label>Interest rate (% a year)<input type="number" id="b-rate" value="12" min="0" step="0.5"></label>
+      <label>Repayment term (months)<input type="number" id="b-term" value="36" min="1"></label>
+      <label>If a payment is missed<select id="b-late">
+        <option value="pause">Pause new loans to that borrower until current</option>
+        <option value="extend">Extend the term at the same rate</option>
+        <option value="trustees">Trustees decide case by case</option></select></label>
+      <label>Selling the vault<select id="b-sell">
+        <option value="unanimous">Needs a unanimous trustee vote</option>
+        <option value="twothirds">Needs a two-thirds trustee vote</option>
+        <option value="never">Not allowed, except to prevent liquidation</option></select></label>
+      <label>Family meeting<select id="b-meet">
+        <option>quarterly</option><option>twice a year</option><option>once a year</option></select></label>
+    </div>
+    <div class="cb"><input type="checkbox" id="b-edu" checked><label for="b-edu">Borrowers complete a short money course before their first loan</label></div>
+    <div class="pager"><button class="btn" id="b-copy" type="button">Copy the draft</button><span id="b-msg" class="q-meta" role="status"></span></div>
+    <div class="doc" id="b-out" aria-live="polite"></div>
+  </div>
+  <h3>Teaching the next generation</h3>
+  <ul>
+    <li><b>Children:</b> saving, earning, and why the vault is not spent.</li>
+    <li><b>Teens:</b> how a loan works, using a tiny pool loan with real repayment.</li>
+    <li><b>Young adults:</b> read the constitution, and sit in on a family meeting.</li>
+    <li><b>Adult heirs:</b> practice recovering the keys from the written instructions.</li>
+  </ul>
+  <h3>Check yourself</h3>
+  <details class="qa"><summary>What problem does a family constitution solve?</summary><p>It settles in advance who can borrow, how much, on what terms, and what happens on a default or a sale, so those fights do not happen in a crisis.</p></details>
+  <details class="qa"><summary>Why have heirs practice recovering the keys?</summary><p>Instructions that have never been tested often fail. A practice run finds the gaps while the original owner can still fix them.</p></details>
+</section>
+
+<!-- 8a HOW TO USE THE SIMULATOR -->
+<section class="panel" id="p8a" hidden>
+  <h2 tabindex="-1">How to use the simulator</h2>
+  <p class="lede">Read this once and the simulator will make sense in a minute. The next lesson has the simulator itself.</p>
+
+    <h3>What the simulator shows</h3>
+    <p>It answers one question: can a family borrow against a Bitcoin vault, lend the money inside the family, and survive a 70% price drop without being forced to sell? It models the vault, the loan, the family pool, a rescue rule, and an Aave-style loan that liquidates.</p>
+    <p>Try it as you read: every button below loads a setup into the simulator for you.</p>
+    <h3>Quick start</h3>
+    <p>Your first run takes about a minute and needs no changes to the settings.</p>
+    <ol class="txt">
+      <li>Open the next lesson, Simulator lab. It starts on the Simulator tab with everything at the defaults: 2 BTC at $100,000, plus $1,000 added each month for 5 years, with 20% of the vault borrowed on day one.</li>
+      <li>Check that the <b>70% drawdown</b> button at the top is selected.</li>
+      <li>Read the banner. On the default price noise it says the vault held with the pool's help, with a peak LTV of about 58%.</li>
+      <li>Press <b>Play</b> under the LTV chart. Watch LTV climb as the price falls, cross the amber rescue line, then drop when the pool repays part of the loan.</li>
+      <li>Now load the dangerous version: borrow 30% with auto-rescue off. The banner turns red when LTV reaches 81% and Aave sells about 2 BTC.</li>
+    </ol>
+    <p><button class="btn ghost" type="button" id="qs-safe">Load the default run</button> <button class="btn ghost" type="button" id="qs-bad">Load the liquidation run</button></p>
+    <div class="callout"><b class="t">The lesson in step 5</b><p>The same price crash is survivable or not depending on how much you borrowed and whether the pool has cash ready to repay debt.</p></div>
+
+    <h3>Reading the screen</h3>
+    <p>Each part of the page answers a different question. Start at the top and work down.</p>
+    <div class="tw"><table><thead><tr><th>Part</th><th>What it tells you</th><th>How to use it</th></tr></thead><tbody id="screenTbl"></tbody></table></div>
+    <p>Color in the readout follows LTV: green is under the cap, amber is between the cap and the liquidation line, and red is at or past it.</p>
+
+    <h3>Every setting</h3>
+    <p>The sidebar has five groups. Every change reruns the model at once, so move one setting at a time and watch the banner. Filter the list by group:</p>
+    <div class="chips" id="setChips" role="group" aria-label="Filter settings by group"></div>
+    <div class="tw"><table><thead><tr><th>Group</th><th>Setting</th><th>Default</th><th>What it does</th></tr></thead><tbody id="setTbl"></tbody></table></div>
+    <p>The settings with the most effect are the borrowing share, the share of the pool lent out, and the liquidation line. Set the liquidation line from Aave's current setting for Bitcoin, or from the platform you plan to use.</p>
+
+    <h3>How the model works</h3>
+    <p>The model steps forward one month at a time. On day one it borrows the starting share of the vault and lends part of it to the family. Then each month it does this, in order:</p>
+    <ol class="txt">
+      <li>Sets the Bitcoin price from the scenario line, plus the noise.</li>
+      <li>Buys Bitcoin with the monthly deposit and adds it to the vault.</li>
+      <li>Charges interest on the loan and pays it from the pool's cash. If cash runs short, unpaid interest is added to the loan.</li>
+      <li>Collects interest from family loans, writes off the share that goes bad, and takes in the monthly repayments.</li>
+      <li>Lends money out again until the lent-out share is back at the setting.</li>
+      <li>If "Borrow more as the vault grows" is on, borrows up to the starting percentage again.</li>
+      <li>Checks LTV. If it is at the rescue trigger and the pool has cash, the pool repays debt, aiming at the borrowing cap.</li>
+      <li>Checks LTV against the liquidation line. If it is at or past it, Aave sells enough Bitcoin to clear the debt plus the penalty, and the loan resets to zero.</li>
+    </ol>
+    <p>The LTV chart shows the value from before the rescue in step 7, so a rescue appears as a spike and a dot instead of disappearing.</p>
+    <div class="callout warn"><b class="t">What the model leaves out</b><p>It does not include taxes, trading or custody fees, platform-specific rules such as partial liquidations or margin calls with a grace period, or the failure of a lender, protocol, wrapped-Bitcoin issuer, or price feed. It also leaves out yield on the cash you hold back and any outside yield farming income you route into the pool, so it can understate the family bank if you put idle cash to work. The pool cannot recall family loans in an emergency, so only cash counts toward a rescue. Real price drops can happen inside a single month, faster than the monthly steps show. Use it to understand the structure, not as a forecast.</p></div>
+    <p>The wealth comparison is the family bank (vault plus pool cash and loans, minus the debt) against a plain vault that gets the same monthly deposits and never borrows.</p>
+
+    <h3>Common questions</h3>
+    <details class="qa"><summary>Why did my numbers change when I did nothing?</summary><p>You pressed Reshuffle. It draws new random price noise. The same noise is used for every scenario in the table, so the scenarios stay comparable with each other.</p></details>
+    <details class="qa"><summary>I set "Borrow at the start" to 40% but it borrowed less.</summary><p>The cap wins. The model borrows the lower of the starting share and "Never borrow past," so raise both.</p></details>
+    <details class="qa"><summary>The banner says held. Is my plan safe?</summary><p>No. It means this one path, with this noise, did not trigger a liquidation. Run every scenario in the table, reshuffle a few times, and look at the peak LTV, not just the outcome. A peak near the liquidation line is a near miss.</p></details>
+    <details class="qa"><summary>Why does the rescue stop helping in a long crash?</summary><p>The pool's cash is finite. Each rescue spends cash on debt, and cash refills only from family repayments and interest. A second drop after a rescue meets a thinner buffer.</p></details>
+    <details class="qa"><summary>What should I set the liquidation line to?</summary><p>Use the number Aave or your platform publishes. If you are unsure, test a lower line such as 70%, which is harsher than the 80% default.</p></details>
+    <div class="pager"><button class="btn" type="button" data-open-sim>Open the simulator</button><button class="btn ghost" type="button" data-open-exp>Go to the experiments</button></div>
+  
+</section>
+
+<!-- 8 SIMULATOR LAB -->
+<section class="panel wide" id="p8" hidden>
+  <div class="rd">
+    <h2 tabindex="-1">Simulator lab</h2>
+    <p class="lede">Run your plan through a crash before you run it with real Bitcoin. Load an experiment, or change the settings yourself. New to the controls? Read <a href="#p8a">How to use the simulator</a> first.</p>
+  </div>
+  <div class="tabs rd" role="tablist" aria-label="Simulator lab sections">
+    <button role="tab" id="tb-exp" data-tab="exp" aria-controls="tab-exp" aria-selected="false" tabindex="-1">Experiments</button>
+    <button role="tab" id="tb-sim" data-tab="sim" aria-controls="tab-sim" aria-selected="true" tabindex="0">Simulator</button>
+  </div>
+
+  <div id="tab-exp" class="tabpane rd" role="tabpanel" aria-labelledby="tb-exp" hidden>
+    <p>Each experiment changes one idea. Select a button to load that setup into the simulator, then look at the banner and the LTV chart. Try to predict the result before you open "What to expect." Results are from the default noise, so a reshuffle can move them a little.</p>
+    <div id="expList"></div>
+    <div class="callout"><b class="t">Test for luck</b><p>Load experiment 1 with auto-rescue off, then press Reshuffle several times in the simulator. In my runs every noise draw ended in liquidation, with peak LTV between 80% and 89%.</p></div>
+    <p><button class="btn ghost" type="button" data-open-sim>Open the simulator</button></p>
+  </div>
+
+  <div id="tab-sim" class="tabpane" role="tabpanel" aria-labelledby="tb-sim">
+    <div class="simbar">
+      <button class="btn ghost" type="button" id="sim-full">Full screen</button>
+      <button class="btn ghost" type="button" id="sim-tab">Open in its own tab</button>
+      <button class="btn ghost" type="button" id="sim-reset">Reset settings</button>
+      <button class="btn ghost" type="button" data-open-exp>Experiments</button>
+      <button class="btn ghost" type="button" data-go="p8a">How to use it</button>
+    </div>
+    <div id="expBanner" class="banner" hidden></div>
+    <div class="simbox" id="simBox">
+      <div class="fullbar"><b>Bitcoin Family Bank Simulator</b><span style="flex:1"></span><button class="btn" type="button" id="sim-exit">Exit full screen</button></div>
+      <iframe id="simFrame" title="Bitcoin Family Bank Simulator"></iframe>
+    </div>
+    <p class="q-meta" style="margin-top:8px">On a phone, use "Jump to settings" at the top of the simulator to change the inputs, then scroll back up to the results.</p>
+  </div>
+</section>
+
+<!-- 9 ROLLOUT -->
+<section class="panel" id="p9" hidden>
+  <h2 tabindex="-1">Your rollout plan</h2>
+  <p class="lede">Build from the inside out, and add risk only after the layer beneath is proven.</p>
+  <ol class="txt">
+    <li><b>Vault and custody.</b> Choose your setup, test recovery, and begin recurring deposits.</li>
+    <li><b>Constitution and legal wrapper.</b> Draft the family rules and meet your attorney and CPA.</li>
+    <li><b>A conservative credit line.</b> Take a small loan, run a full repay cycle, and watch your alerts.</li>
+    <li><b>Open the pool.</b> Make first loans small, in writing, and on schedule.</li>
+    <li><b>Add heirs and education.</b> Bring heirs into the key setup and start the teaching track.</li>
+  </ol>
+  <h3>Rollout checklist</h3>
+  <ul class="checks" data-key="rollout">
+    <li>Vault set up and recovery tested.</li>
+    <li>Family constitution drafted and reviewed with family.</li>
+    <li>Attorney and CPA consulted, with their advice in writing.</li>
+    <li>First loan taken at a low LTV with alerts running.</li>
+    <li>First family loan made, documented, and repaid.</li>
+    <li>Heirs added and recovery practiced.</li>
+  </ul>
+  <div class="callout warn"><b class="t">Stop rules</b><p>Do not borrow if you cannot explain your liquidation price from memory, if your recovery test has not passed, or if you would be forced to sell at a bad price to cover living costs. Repay or reduce the loan first.</p></div>
+  <h3>Main risks to review</h3>
+  <ul>
+    <li>Liquidation in a sharp drop</li>
+    <li>Protocol, lender, or wrapped-Bitcoin failure</li>
+    <li>Lost or unreachable keys</li>
+    <li>Changes in tax or regulation</li>
+    <li>Borrowing for things that do not earn a return</li>
+  </ul>
+</section>
+
+<!-- 10 STUDY GUIDE -->
+<section class="panel" id="p10" hidden>
+  <h2 tabindex="-1">Study guide</h2>
+  <p class="lede">Formulas, key points, and flashcards for a last review before the quiz.</p>
+  <h3>Formulas</h3>
+  <div class="tw formulas"><table>
+    <tr><td>Loan-to-value</td><td>Debt ÷ vault value</td></tr>
+    <tr><td>Liquidation price</td><td>Debt ÷ (liquidation LTV × Bitcoin held)</td></tr>
+    <tr><td>LTV after a price drop</td><td>Current LTV ÷ (1 − drop)</td></tr>
+    <tr><td>Largest loan that survives a drop</td><td>Liquidation LTV × vault value × (1 − drop)</td></tr>
+    <tr><td>Yearly pool result</td><td>Lent × (family rate − bad loans) + idle cash × its yield − borrowed × Aave rate</td></tr>
+    <tr><td>Break-even family rate</td><td>((Aave rate × borrowed) − idle income) ÷ lent + bad-loan rate</td></tr>
+  </table></div>
+  <h3>Key points by layer</h3>
+  <ul>
+    <li><b>Vault:</b> never sold for spending, held so you cannot lose it, and recovery tested before any loan.</li>
+    <li><b>Bank:</b> loan size is set by a crash, not by today's price. Keep cash and alerts.</li>
+    <li><b>Pool:</b> loans in writing, small to start, and priced with bad loans and idle cash counted.</li>
+    <li><b>Moat:</b> death, divorce, debt, and disagreement each need a plan, and an attorney builds it.</li>
+    <li><b>Generations:</b> a written constitution, education, and practiced recovery.</li>
+  </ul>
+  <h3>Flashcards</h3>
+  <div class="fc-wrap">
+    <div class="q-meta" id="fc-count"></div>
+    <button class="fc" id="fc-card" type="button" aria-live="polite"></button>
+    <div class="fcbar">
+      <button class="btn ghost" id="fc-prev" type="button">Back</button>
+      <button class="btn ghost" id="fc-next" type="button">Next</button>
+      <button class="btn" id="fc-know" type="button">I know this</button>
+      <button class="btn ghost" id="fc-shuffle" type="button">Shuffle</button>
+      <button class="btn ghost" id="fc-clear" type="button">Start over</button>
+    </div>
+  </div>
+</section>
+
+<!-- 11 QUIZ -->
+<section class="panel" id="p11" hidden>
+  <h2 tabindex="-1">Final quiz</h2>
+  <p class="lede">Twelve questions. Score 80% or higher to complete the course.</p>
+  <div id="quiz"></div>
+</section>
+
+</main>
+</div>
+
+<script>
+/* ============ settings ============ */
+const KEY = "bws-btc-family-bank-v1";
+const PANELS = [
+  {id:"p0",t:"Start here",g:"Foundations"},
+  {id:"p1",t:"The idea behind infinite banking",g:"Foundations"},
+  {id:"p2",t:"Translating it to Bitcoin",g:"Foundations"},
+  {id:"p3",t:"The vault",g:"The five layers"},
+  {id:"p4",t:"The bank",g:"The five layers"},
+  {id:"p5",t:"The family pool",g:"The five layers"},
+  {id:"p6",t:"The moat",g:"The five layers"},
+  {id:"p7",t:"Generations",g:"The five layers"},
+  {id:"p8a",t:"How to use the simulator",g:"Practice"},
+  {id:"p8",t:"Simulator lab",g:"Practice"},
+  {id:"p9",t:"Your rollout plan",g:"Practice"},
+  {id:"p10",t:"Study guide",g:"Review"},
+  {id:"p11",t:"Final quiz",g:"Review"}
+];
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+/* ============ storage ============ */
+let S = {done:{},checks:{},notes:{},cards:{},best:null,builder:{}};
+try{ const raw=localStorage.getItem(KEY); if(raw) S=Object.assign(S,JSON.parse(raw)); }catch(e){}
+function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
+
+/* ============ navigation ============ */
+function buildNav(){
+  let html="", last="";
+  PANELS.forEach(p=>{
+    if(p.g!==last){ if(last) html+="</ol>"; html+=`<h4>${p.g}</h4><ol>`; last=p.g; }
+    html+=`<li><button type="button" data-go="${p.id}"><span class="tick" aria-hidden="true"></span><span>${p.t}</span></button></li>`;
+  });
+  $("#navList").innerHTML=html+"</ol>";
+  $$("#navList button").forEach(b=>b.addEventListener("click",()=>{location.hash=b.dataset.go; closeMenu();}));
+}
+function refreshNav(cur){
+  $$("#navList button").forEach(b=>{
+    const id=b.dataset.go;
+    b.querySelector(".tick").textContent = S.done[id] ? "\u2713" : "";
+    b.setAttribute("aria-current", id===cur?"page":"false");
+  });
+  const n=PANELS.filter(p=>S.done[p.id]).length, pct=Math.round(n/PANELS.length*100);
+  $("#barFill").style.width=pct+"%"; $("#barA").setAttribute("aria-valuenow",pct);
+  $("#barLbl").textContent=`${n} of ${PANELS.length} complete`;
+}
+function show(id){
+  if(!PANELS.some(p=>p.id===id)) id="p0";
+  $$(".panel").forEach(p=>p.hidden = p.id!==id);
+  refreshNav(id);
+  const h=$("#"+id+" h2"); window.scrollTo(0,0); if(h) h.focus({preventScroll:true});
+  document.title = PANELS.find(p=>p.id===id).t+" | The Bitcoin Family Bank";
+  const f=$("#"+id+" .complete"); if(f) setCompleteBtn(f,id);
+  if(typeof selectTab==="function"){ if(id==="p8") selectTab(labTab); else { stopPoll(); if(simFull) setFull(false); } }
+}
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+function closeMenu(){ $("#nav").classList.remove("open"); $("#menuBtn").setAttribute("aria-expanded","false"); }
+$("#menuBtn").addEventListener("click",()=>{ const o=$("#nav").classList.toggle("open"); $("#menuBtn").setAttribute("aria-expanded",o); });
+
+/* ============ lesson footers ============ */
+function setCompleteBtn(btn,id){ btn.textContent = S.done[id] ? "Completed. Select to undo" : "Mark this lesson complete"; btn.classList.toggle("ghost",!!S.done[id]); }
+function buildFooters(){
+  PANELS.forEach((p,i)=>{
+    const sec=$("#"+p.id), foot=document.createElement("div"); foot.className="foot";
+    let h="";
+    if(!["p10","p11"].includes(p.id)){
+      h+=`<h3>My notes</h3><textarea class="notes" id="n-${p.id}" aria-label="My notes for ${p.t}" placeholder="Write what you want to remember. Saved in this browser."></textarea>`;
+    }
+    h+=`<div class="pager">`;
+    if(i>0) h+=`<button class="btn ghost" type="button" data-go="${PANELS[i-1].id}">Back</button>`;
+    h+=`<span class="sp"></span>`;
+    if(p.id!=="p11") h+=`<button class="btn ghost complete" type="button" data-done="${p.id}"></button>`;
+    if(i<PANELS.length-1) h+=`<button class="btn" type="button" data-go="${PANELS[i+1].id}">Next lesson</button>`;
+    h+=`</div>`;
+    foot.innerHTML=h; sec.appendChild(foot);
+    const ta=foot.querySelector("textarea");
+    if(ta){ ta.value=S.notes[p.id]||""; ta.addEventListener("input",()=>{S.notes[p.id]=ta.value;save();}); }
+  });
+  $$("[data-go]").forEach(b=>{ if(!b.closest("#navList")) b.addEventListener("click",()=>{location.hash=b.dataset.go;}); });
+  $$("[data-done]").forEach(b=>b.addEventListener("click",()=>{
+    const id=b.dataset.done; S.done[id]=!S.done[id]; save(); setCompleteBtn(b,id); refreshNav(id);
+  }));
+}
+
+/* ============ checklists ============ */
+function buildChecks(){
+  $$("ul.checks").forEach(ul=>{
+    const key=ul.dataset.key; S.checks[key]=S.checks[key]||{};
+    [...ul.children].forEach((li,i)=>{
+      const txt=li.textContent, id=`ck-${key}-${i}`;
+      li.innerHTML=`<label><input type="checkbox" id="${id}"><span>${txt}</span></label>`;
+      const cb=li.querySelector("input"); cb.checked=!!S.checks[key][i];
+      cb.addEventListener("change",()=>{S.checks[key][i]=cb.checked;save();});
+    });
+  });
+}
+
+/* ============ translation rows ============ */
+const MAP=[
+  ["Policy cash value","Bitcoin vault","Cash value is contractual and steady. The vault can fall 70% in a crash, which is why loan size matters so much."],
+  ["Policy loan","Bitcoin-backed stablecoin loan","A policy loan has no margin call. A Bitcoin loan can be liquidated if LTV climbs too high."],
+  ["Paying yourself back","Family lending pool","An insurer runs the policy side. The family has to run the pool, keep records, and enforce terms."],
+  ["Death benefit","Trust plus multisig inheritance plan","Bitcoin has no built-in beneficiary. Heirs need keys, instructions, and a legal path."],
+  ["Creditor and legal protection","Trusts and entities","Protection varies by structure and by state. Only a qualified attorney can tell you what applies."]
+];
+function buildMap(){
+  const box=$("#mapRows");
+  box.innerHTML=MAP.map((m,i)=>`<div><button class="row" type="button" aria-expanded="false" aria-controls="md${i}"><span class="l">${m[0]}</span><span class="arrow" aria-hidden="true">\u2192</span><span class="r">${m[1]}</span></button><div class="det" id="md${i}" hidden><b>The catch.</b> ${m[2]}</div></div>`).join("");
+  $$("#mapRows .row").forEach(b=>b.addEventListener("click",()=>{
+    const d=$("#"+b.getAttribute("aria-controls")), open=d.hidden; d.hidden=!open; b.setAttribute("aria-expanded",open);
+  }));
+}
+
+/* ============ calculators ============ */
+const usd=v=>{const a=Math.abs(v),s=v<0?"-":"";return a>=1e6?s+"$"+(a/1e6).toFixed(2)+"M":s+"$"+Math.round(a).toLocaleString("en-US");};
+const num=id=>{const v=parseFloat($("#"+id).value);return isFinite(v)?v:0;};
+function calcLTV(){
+  const btc=num("lc-btc"),price=Math.max(1,num("lc-price")),debt=num("lc-borrow"),liq=num("lc-liq")/100;
+  const val=btc*price, ltv=val>0?debt/val:0;
+  const liqPrice = btc>0&&liq>0 ? debt/(liq*btc) : 0, dropToLiq = price>0 ? 1-liqPrice/price : 0;
+  const rows=[0.3,0.5,0.7,0.8].map(d=>{
+    const l=val>0?debt/(val*(1-d)):0, cls=l>=liq?"bad":(l>=liq-0.2?"warnc":"ok"), st=l>=liq?"Liquidated":(l>=liq-0.2?"Danger zone":"Holds");
+    return `<tr><td>Falls ${Math.round(d*100)}%</td><td class="n">${usd(price*(1-d))}</td><td class="n ${cls}">${(l*100).toFixed(0)}%</td><td class="${cls}">${st}</td></tr>`;
+  }).join("");
+  const edge=liq*val*0.3, cush=Math.max(0,(liq-0.10))*val*0.3;
+  $("#lc-out").innerHTML=
+   `<div class="big">${(ltv*100).toFixed(0)}% LTV</div>`+
+   `<dl><div class="r"><dt>Vault value</dt><dd>${usd(val)}</dd></div>`+
+   `<div class="r"><dt>Liquidation price</dt><dd>${debt>0?usd(liqPrice):"No loan"}</dd></div>`+
+   `<div class="r"><dt>Fall before liquidation</dt><dd>${debt>0?Math.max(0,dropToLiq*100).toFixed(0)+"%":"None"}</dd></div>`+
+   `<div class="r"><dt>Largest loan surviving a 70% fall</dt><dd>${usd(edge)}</dd></div>`+
+   `<div class="r"><dt>Same, with a 10-point cushion</dt><dd>${usd(cush)}</dd></div></dl>`+
+   `<div class="tw"><table><tr><th>Price move</th><th class="n">Price</th><th class="n">LTV</th><th>Result</th></tr>${rows}</table></div>`;
+}
+function calcPool(){
+  const B=num("sc-borrow"),u=num("sc-util")/100,f=num("sc-fam")/100,bad=num("sc-bad")/100,L=num("sc-lend")/100,I=num("sc-idle")/100;
+  const lent=B*u, idle=Math.max(0,B-lent), inc=lent*f, loss=lent*bad, cost=B*L, idleInc=idle*I, net=inc-loss-cost+idleInc;
+  const be = lent>0 ? Math.max(0,(cost-idleInc)/lent+bad) : 0;
+  $("#sc-out").innerHTML=
+   `<div class="big ${net>=0?"ok":"bad"}">${net>=0?"+":""}${usd(net)} a year</div>`+
+   `<dl><div class="r"><dt>Lent to the family</dt><dd>${usd(lent)}</dd></div>`+
+   `<div class="r"><dt>Interest from the family</dt><dd>${usd(inc)}</dd></div>`+
+   `<div class="r"><dt>Loans that go bad</dt><dd>-${usd(loss)}</dd></div>`+
+   `<div class="r"><dt>Interest you pay Aave</dt><dd>-${usd(cost)}</dd></div>`+
+   `<div class="r"><dt>Yield on the cash you do not lend</dt><dd>${idleInc>0?"+":""}${usd(idleInc)}</dd></div>`+
+   `<div class="r"><dt>Break-even family rate</dt><dd>${lent>0?(be*100).toFixed(1)+"%":"n/a"}</dd></div></dl>`;
+}
+function bindCalcs(){
+  ["lc-btc","lc-price","lc-borrow","lc-liq"].forEach(i=>$("#"+i).addEventListener("input",calcLTV));
+  ["sc-borrow","sc-util","sc-fam","sc-bad","sc-lend","sc-idle"].forEach(i=>$("#"+i).addEventListener("input",calcPool));
+  calcLTV(); calcPool();
+}
+
+/* ============ family constitution ============ */
+function checked(ids,labels){return ids.map((id,i)=>$("#"+id).checked?labels[i]:null).filter(Boolean);}
+function list(a,empty){return a.length?a.join(", ").replace(/, ([^,]*)$/,a.length>1?", and $1":"$1"):empty;}
+function buildDoc(){
+  const name=$("#b-name").value.trim()||"[Family name]", trustees=$("#b-trust").value.trim()||"[Trustee names]";
+  const who=checked(["bw1","bw2","bw3","bw4"],["spouses","adult children","grandchildren aged 25 and over","family-owned businesses"]);
+  const why=checked(["bp1","bp2","bp3","bp4","bp5"],["education","buying a home","starting or growing a business","emergencies","vehicles"]);
+  const late={pause:"New loans to that borrower pause until they are current.",extend:"The trustees may extend the term at the same rate.",trustees:"The trustees decide how to handle it, case by case, and record the decision."}[$("#b-late").value];
+  const sell={unanimous:"The vault may be sold only by a unanimous vote of the trustees.",twothirds:"The vault may be sold only by a two-thirds vote of the trustees.",never:"The vault is not sold, except to prevent a liquidation."}[$("#b-sell").value];
+  const t=
+`${name.toUpperCase()}
+FAMILY CONSTITUTION (DRAFT)
+
+1. PURPOSE
+This family keeps a Bitcoin vault, borrows against it carefully, and lends within the family on fair terms. The goal is to build and pass on wealth that serves many generations.
+
+2. THE VAULT
+The vault is not sold to fund spending. ${sell} Keys, backups, and recovery instructions are held as the trustees direct, and recovery is practiced at least once a year.
+
+3. TRUSTEES
+The trustees are ${trustees}. They keep the records, set the loan limit against the vault, and watch the loan's health factor and alerts.
+
+4. WHO MAY BORROW
+Eligible borrowers: ${list(who,"[none selected]")}.
+
+5. APPROVED PURPOSES
+Loans may be made for ${list(why,"[none selected]")}.
+
+6. LOAN TERMS
+- No single borrower may owe more than ${$("#b-max").value||0}% of the pool.
+- Interest is ${$("#b-rate").value||0}% a year.
+- The repayment term is ${$("#b-term").value||0} months.
+- Every loan is in writing and signed.
+- If a payment is missed: ${late}
+
+7. EDUCATION
+${$("#b-edu").checked?"Each borrower completes a short money course before the first loan.":"Education is encouraged but not required."}
+
+8. MEETINGS
+The family meets ${$("#b-meet").value} to review the vault, the loan, the pool, and any proposed changes.
+
+9. CHANGES
+This constitution may be changed only by the trustees, and any change is written down with the date.
+
+Draft only. Have an attorney review it before use.`;
+  $("#b-out").textContent=t; return t;
+}
+function bindBuilder(){
+  $$("#builder input, #builder select").forEach(el=>el.addEventListener("input",buildDoc));
+  $("#b-copy").addEventListener("click",async()=>{
+    const t=buildDoc(); let ok=false;
+    try{ await navigator.clipboard.writeText(t); ok=true; }catch(e){
+      const r=document.createRange(); r.selectNodeContents($("#b-out")); const s=getSelection(); s.removeAllRanges(); s.addRange(r);
+      try{ ok=document.execCommand("copy"); }catch(_){}
+    }
+    $("#b-msg").textContent = ok?"Copied.":"Select the text and copy it.";
+    setTimeout(()=>$("#b-msg").textContent="",2500);
+  });
+  buildDoc();
+}
+
+/* ============ flashcards ============ */
+const CARDS=[
+ ["Vault","Bitcoin you do not sell for spending. It is both your collateral and your long-term savings."],
+ ["Loan-to-value (LTV)","The amount you owe divided by the value of the collateral."],
+ ["Liquidation","The platform, such as Aave, sells part of your collateral to repay a loan when LTV reaches its limit. On Aave this happens automatically."],
+ ["Health factor","Aave's safety score for a loan: the collateral's liquidation value divided by the debt. Below 1.0, the loan can be liquidated."],
+ ["Aave","An onchain lending protocol. You post collateral, borrow stablecoins that other users supplied, and pay a variable rate."],
+ ["Collateral","The asset that secures a loan. Here, your Bitcoin, posted to Aave as wrapped Bitcoin."],
+ ["Stablecoin","A token designed to track a currency such as the dollar. It is what you borrow and lend in the pool."],
+ ["Multisig","A wallet that needs several keys to move funds, such as any two of three."],
+ ["Collaborative custody","A setup where you and a provider each hold keys, so neither can move funds alone."],
+ ["Honest banker","The rule of repaying your own system on a schedule, with interest, as an outside bank would require."],
+ ["Spread","The difference between what the pool earns on loans and what it pays Aave, after bad loans."],
+ ["Cash buffer","Money held back from lending so the pool can repay debt quickly if LTV rises."],
+ ["Borrowing cap","The maximum LTV you allow yourself, set well below the liquidation line."],
+ ["Rescue trigger","The LTV at which you act, by repaying part of the loan, before Aave does."],
+ ["Family constitution","A written set of rules for who can borrow, on what terms, and who decides."],
+ ["Counterparty risk","The chance that the company you rely on fails, freezes withdrawals, or changes terms."]
+];
+let order=CARDS.map((_,i)=>i), ci=0, flipped=false;
+function drawCard(){
+  const idx=order[ci], c=CARDS[idx], known=!!S.cards[idx];
+  $("#fc-count").textContent=`Card ${ci+1} of ${CARDS.length}. ${Object.values(S.cards).filter(Boolean).length} known${known?" (this one is known)":""}`;
+  $("#fc-card").innerHTML = flipped
+    ? `<span class="def">${c[1]}</span><span class="hint">Select to see the term</span>`
+    : `<span class="term">${c[0]}</span><span class="hint">Select to see the meaning</span>`;
+}
+function bindCards(){
+  $("#fc-card").addEventListener("click",()=>{flipped=!flipped;drawCard();});
+  $("#fc-next").addEventListener("click",()=>{ci=(ci+1)%CARDS.length;flipped=false;drawCard();});
+  $("#fc-prev").addEventListener("click",()=>{ci=(ci-1+CARDS.length)%CARDS.length;flipped=false;drawCard();});
+  $("#fc-know").addEventListener("click",()=>{S.cards[order[ci]]=true;save();ci=(ci+1)%CARDS.length;flipped=false;drawCard();});
+  $("#fc-shuffle").addEventListener("click",()=>{for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}ci=0;flipped=false;drawCard();});
+  $("#fc-clear").addEventListener("click",()=>{S.cards={};save();ci=0;flipped=false;drawCard();});
+  drawCard();
+}
+
+/* ============ quiz ============ */
+const QUIZ=[
+ {q:"Which layer holds the Bitcoin you do not sell for spending?",o:["The bank","The vault","The family pool","The moat"],a:1,e:"The vault is the core stack. The other layers are built around it."},
+ {q:"A vault is worth $200,000 and you owe $60,000. What is your LTV?",o:["20%","30%","60%","300%"],a:1,e:"60,000 ÷ 200,000 = 30%."},
+ {q:"What is the key structural difference between a policy loan and a Bitcoin-backed loan?",o:["Only policy loans charge interest","A Bitcoin-backed loan can be liquidated when collateral falls","Bitcoin loans never need repayment","They are identical"],a:1,e:"A policy loan has no margin call, though a policy can still lapse if loans outgrow its cash value. A Bitcoin loan can be liquidated if LTV reaches the platform's line."},
+ {q:"You hold 1 BTC at $100,000, owe $30,000, and the platform liquidates at 80% LTV. What is the liquidation price?",o:["$30,000","$37,500","$80,000","$24,000"],a:1,e:"Debt ÷ (liquidation LTV × Bitcoin) = 30,000 ÷ (0.8 × 1) = $37,500."},
+ {q:"Why keep part of the pool as cash instead of lending all of it?",o:["Cash earns more than loans","It looks better on paper","It can repay debt quickly if LTV rises","The platform requires it"],a:2,e:"Cash is the buffer for a rescue. With no cash, the pool cannot repay debt in a crash."},
+ {q:"You borrow $100,000 at 8%. You lend 70% at 12%, and 3% of loans go bad each year. What is the pool's yearly result?",o:["+$1,700","-$1,700","+$8,400","-$8,000"],a:1,e:"Income 70,000 × 12% = 8,400. Losses 70,000 × 3% = 2,100. Interest owed 100,000 × 8% = 8,000. 8,400 − 2,100 − 8,000 = −1,700."},
+ {q:"You borrow 20% of the vault's value and the price falls 70%. About what is your LTV?",o:["20%","40%","67%","100%"],a:2,e:"The debt is unchanged while the vault shrinks to 30% of its value: 20 ÷ 30 ≈ 67%, before any interest."},
+ {q:"What is the purpose of multisig in an inheritance plan?",o:["It hides the Bitcoin from the tax authority","It removes the single point of failure and lets heirs recover with the right keys","It increases the price","It replaces a will"],a:1,e:"Splitting keys across people and places removes one point of failure. You still need instructions and a legal plan."},
+ {q:"What does a family constitution do?",o:["Guarantees loans are repaid","Sets in advance who can borrow, on what terms, and what happens on a default","Replaces the need for an attorney","Sets the Bitcoin price"],a:1,e:"It is a set of agreed rules. It cuts down on conflict, but it does not replace legal advice."},
+ {q:"Which combination best reduces liquidation risk?",o:["A high loan, no alerts, and no cash","A low borrowing cap, a cash buffer, and alerts","Borrowing more when the price rises, with no cap","Keeping the loan secret"],a:1,e:"A conservative cap, spare cash, and early alerts give you time and room to act."},
+ {q:"Why test a wallet recovery before taking a loan?",o:["To raise the loan limit","To prove you can reach the collateral before you owe money","Because the platform requires it","To avoid fees"],a:1,e:"Discovering a recovery problem after you borrow can leave you in debt with no way to manage the collateral."},
+ {q:"Which statement about taxes and legal structures is the safest?",o:["Borrowing is always tax free everywhere","Any trust fully protects assets","Rules vary, so confirm with a CPA and an attorney who know digital assets","Taxes do not apply to Bitcoin"],a:2,e:"Borrowing is generally not treated as a sale, but details differ by place and situation. Get professional advice."}
+];
+let qi=0, qScore=0, qMissed=[], qAnswered=false;
+function renderQuiz(){
+  const box=$("#quiz");
+  if(qi>=QUIZ.length){
+    const pct=Math.round(qScore/QUIZ.length*100), pass=pct>=80;
+    if(S.best===null||pct>S.best){S.best=pct;}
+    if(pass){S.done.p11=true;}
+    save(); refreshNav("p11");
+    box.innerHTML=`<div class="card"><div class="score">${pct}%</div><p>${qScore} of ${QUIZ.length} correct. ${pass?"You passed, and the course is marked complete.":"You need 80% to pass. Review the study guide and try again."}</p><p class="q-meta">Best score: ${S.best}%</p>`+
+      (qMissed.length?`<h3>To review</h3><ul>${qMissed.map(i=>`<li>${QUIZ[i].q}<br><span class="q-meta">${QUIZ[i].e}</span></li>`).join("")}</ul>`:`<p>No missed questions.</p>`)+
+      `<div class="pager"><button class="btn" id="q-retry" type="button">Retake the quiz</button><button class="btn ghost" data-go="p10" type="button">Open the study guide</button></div></div>`;
+    $("#q-retry").addEventListener("click",()=>{qi=0;qScore=0;qMissed=[];renderQuiz();});
+    box.querySelector("[data-go]").addEventListener("click",()=>{location.hash="p10";});
+    return;
+  }
+  const Q=QUIZ[qi]; qAnswered=false;
+  box.innerHTML=`<div class="q-meta">Question ${qi+1} of ${QUIZ.length}${S.best!==null?` | Best score ${S.best}%`:""}</div><div class="q-q">${Q.q}</div><div id="q-opts" role="group" aria-label="Answer choices">${Q.o.map((t,i)=>`<button class="q-opt" type="button" data-i="${i}">${t}</button>`).join("")}</div><div id="q-fb" aria-live="polite"></div>`;
+  $$("#q-opts .q-opt").forEach(b=>b.addEventListener("click",()=>{
+    if(qAnswered) return; qAnswered=true;
+    const pick=+b.dataset.i, ok=pick===Q.a;
+    if(ok) qScore++; else qMissed.push(qi);
+    $$("#q-opts .q-opt").forEach((x,i)=>{x.disabled=true; if(i===Q.a) x.classList.add("right"); else if(i===pick) x.classList.add("wrong");});
+    $("#q-fb").innerHTML=`<div class="q-exp"><b>${ok?"Correct.":"Not quite."}</b> ${Q.e}</div><div class="pager"><button class="btn" id="q-next" type="button">${qi===QUIZ.length-1?"See my score":"Next question"}</button></div>`;
+    $("#q-next").addEventListener("click",()=>{qi++;renderQuiz();window.scrollTo(0,0);});
+    $("#q-next").focus();
+  }));
+}
+
+
+/* ============ simulator lab ============ */
+const SIM_HTML = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\">\n<title>Bitcoin Family Bank Simulator<\/title>\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap\" rel=\"stylesheet\">\n<style>\n:root{\n  --bg:#EDF0F6; --panel:#FFFFFF; --panel2:#E3E8F1; --ink:#0A1428; --muted:#566178;\n  --gold:#8F650C; --gold-soft:#EFE2B8; --line:#C9D1DF; --red:#B3261E; --amber:#A85F00; --green:#1B7552;\n  --red-fill:rgba(179,38,30,.10);\n  --head:\"Bebas Neue\",Impact,\"Arial Narrow\",sans-serif;\n  --body:\"Barlow\",system-ui,-apple-system,\"Segoe UI\",sans-serif;\n  --mono:\"DM Mono\",ui-monospace,\"SFMono-Regular\",Menlo,monospace;\n  box-sizing:border-box;\n  padding-top:env(safe-area-inset-top,0px);\n  padding-bottom:env(safe-area-inset-bottom,0px);\n}\n@media (prefers-color-scheme: dark){\n  :root:not([data-theme=\"light\"]){\n    --bg:#0A1428; --panel:#111F3B; --panel2:#17274A; --ink:#EEE8D8; --muted:#97A3BD;\n    --gold:#D9AE52; --gold-soft:#3A3220; --line:#25365B; --red:#F26B5F; --amber:#E9A23B; --green:#58C79B;\n    --red-fill:rgba(242,107,95,.14);\n  }\n}\n:root[data-theme=\"dark\"]{\n  --bg:#0A1428; --panel:#111F3B; --panel2:#17274A; --ink:#EEE8D8; --muted:#97A3BD;\n  --gold:#D9AE52; --gold-soft:#3A3220; --line:#25365B; --red:#F26B5F; --amber:#E9A23B; --green:#58C79B;\n  --red-fill:rgba(242,107,95,.14);\n}\nhtml{scroll-padding-top:env(safe-area-inset-top,0px)}\n*,*::before,*::after{box-sizing:inherit}\nbody{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}\nbutton,input{font:inherit;color:inherit}\n:focus-visible{outline:2px solid var(--gold);outline-offset:2px}\n.wrap{max-width:1240px;margin:0 auto;padding:20px 18px 48px}\nheader{padding:18px 0 22px;border-bottom:1px solid var(--line);margin-bottom:22px}\n.brand{font-family:var(--mono);font-size:13px;color:var(--gold)}\nh1{font-family:var(--head);font-weight:400;font-size:clamp(40px,7vw,76px);line-height:.95;margin:6px 0 10px;letter-spacing:.01em}\nheader p{margin:0;max-width:64ch;color:var(--muted);font-size:17px}\n.layout{display:grid;grid-template-columns:minmax(280px,340px) minmax(0,1fr);gap:28px;align-items:start}\n@media (max-width:900px){.layout{grid-template-columns:1fr}}\naside{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px 18px 18px}\naside h2{font-family:var(--head);font-weight:400;font-size:26px;margin:20px 0 4px;color:var(--gold);letter-spacing:.02em}\n.field{margin:12px 0}\n.field label,.field .lbl{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--ink)}\n.field output{font-family:var(--mono);font-size:13px;color:var(--gold)}\ninput[type=range]{width:100%;accent-color:var(--gold);margin:6px 0 0}\ninput[type=number]{width:100%;margin-top:5px;padding:8px 10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;font-family:var(--mono);font-size:14px}\n.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin:14px 0}\n.check input{margin-top:4px;accent-color:var(--gold)}\n.btn{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:7px 14px;border-radius:4px;cursor:pointer;font-size:14px}\n.btn:hover{background:var(--gold-soft)}\n.scen{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:18px}\n.scen button{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 12px;cursor:pointer}\n.scen button strong{display:block;font-weight:600;font-size:15px}\n.scen button span{display:block;font-size:12.5px;color:var(--muted);line-height:1.35;margin-top:2px}\n.scen button[aria-pressed=true]{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold);background:var(--gold-soft)}\n.verdict{border-left:6px solid var(--green);background:var(--panel);padding:16px 20px;border-radius:0 6px 6px 0;margin-bottom:22px}\n.verdict.rescued{border-color:var(--amber)} .verdict.liquidated{border-color:var(--red)}\n.verdict h2{font-family:var(--head);font-weight:400;font-size:clamp(30px,4.4vw,46px);line-height:1;margin:0 0 6px}\n.verdict.safe h2{color:var(--green)} .verdict.rescued h2{color:var(--amber)} .verdict.liquidated h2{color:var(--red)}\n.verdict p{margin:4px 0 0;max-width:70ch}\nsection.block{margin:26px 0}\nsection.block h3{font-family:var(--head);font-weight:400;font-size:28px;margin:0 0 2px;letter-spacing:.02em}\n.hint{margin:0 0 10px;color:var(--muted);font-size:14.5px;max-width:70ch}\n.chart{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 6px 4px}\n.chart svg{display:block;width:100%;touch-action:pan-y;cursor:crosshair}\n.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}\n@media (max-width:760px){.two{grid-template-columns:1fr}}\n.scrub{display:flex;align-items:center;gap:14px;margin:12px 0 4px}\n.scrub input{flex:1}\n.scrub .when{font-family:var(--mono);font-size:13px;min-width:150px;text-align:right}\n.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:14px}\n.readout h4{font-family:var(--head);font-weight:400;font-size:21px;margin:0 0 6px;color:var(--gold);letter-spacing:.02em;border-bottom:1px solid var(--line);padding-bottom:3px}\n.readout dl{margin:0}\n.readout div.r{display:flex;justify-content:space-between;gap:10px;padding:3px 0;font-size:14.5px}\n.readout dt{color:var(--muted)} .readout dd{margin:0;font-family:var(--mono);font-size:14px;text-align:right}\n.ok{color:var(--green)} .warn{color:var(--amber)} .bad{color:var(--red)}\n.events{list-style:none;margin:0;padding:0;max-height:210px;overflow:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel)}\n.events li{padding:8px 14px;border-bottom:1px solid var(--line);font-size:14.5px}\n.events li:last-child{border-bottom:0}\n.events .tag{font-family:var(--mono);font-size:12px;margin-right:8px}\n.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel)}\ntable{border-collapse:collapse;width:100%;min-width:560px}\nth,td{padding:9px 12px;text-align:right;font-size:14px;border-bottom:1px solid var(--line)}\nth:first-child,td:first-child{text-align:left}\nth{font-weight:500;color:var(--muted);font-size:13px}\ntr:last-child td{border-bottom:0}\ntd button{background:none;border:0;padding:0;cursor:pointer;color:var(--ink);font-weight:600;text-align:left}\ntd button:hover{color:var(--gold)}\ntd.num{font-family:var(--mono);font-size:13.5px}\ntr.sel td{background:var(--gold-soft)}\n.pill{font-family:var(--mono);font-size:12.5px}\nfooter{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;max-width:80ch}\nsvg text{font-family:var(--mono);font-size:11px;fill:var(--muted)}\n.gridl{stroke:var(--line);stroke-width:1}\n.axis{stroke:var(--muted);stroke-width:1}\n.s-ltv{fill:none;stroke:var(--ink);stroke-width:2.2}\n.s-price{fill:none;stroke:var(--gold);stroke-width:2}\n.s-sys{fill:none;stroke:var(--gold);stroke-width:2.4}\n.s-hodl{fill:none;stroke:var(--muted);stroke-width:1.8;stroke-dasharray:5 4}\n.h-cap{stroke:var(--green);stroke-width:1.3;stroke-dasharray:4 4}\n.h-rescue{stroke:var(--amber);stroke-width:1.3;stroke-dasharray:4 4}\n.h-liq{stroke:var(--red);stroke-width:1.6}\n.zone{fill:var(--red-fill)}\n.cur{stroke:var(--gold);stroke-width:1.2}\n.t-cap{fill:var(--green)!important}.t-rescue{fill:var(--amber)!important}.t-liq{fill:var(--red)!important}\n.dot-sys{fill:var(--gold)}.dot-hodl{fill:var(--muted)}.dot-ltv{fill:var(--ink)}\n.ev-rescue{fill:var(--amber);stroke:var(--bg);stroke-width:1.5}\n.ev-liq{fill:var(--red);stroke:var(--bg);stroke-width:1.5}\n.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:6px 4px 4px}\n.legend i{display:inline-block;width:18px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px}\n\n.asidebar{display:flex;gap:10px;flex-wrap:wrap;padding-top:14px}\n.jump{display:none}\n.embed header{display:none}\n.embed .wrap{padding-top:8px}\n@media (max-width:900px){\n  aside{order:2}\n  .jump{display:inline-block}\n  .scen+.verdict{margin-top:0}\n  main>.jump{margin-bottom:12px}\n}\n<\/style>\n<\/head>\n<body>\n<div class=\"wrap\">\n<header>\n  <div class=\"brand\">Block Wall Street<\/div>\n  <h1>Bitcoin Family Bank Simulator<\/h1>\n  <p>Keep a Bitcoin vault you never sell. Borrow stablecoins against it, lend them inside the family, and watch what a 70% drawdown does to the loan.<\/p>\n<\/header>\n\n<div class=\"layout\">\n<aside aria-label=\"Settings\" id=\"settings\">\n  <div class=\"asidebar\"><button class=\"btn\" id=\"resetAll\" type=\"button\">Reset all settings<\/button><button class=\"btn jump\" id=\"toTop\" type=\"button\">Back to results<\/button><\/div>\n  <h2>Vault<\/h2><div id=\"g-vault\"><\/div>\n  <h2>Price path<\/h2><div id=\"g-path\"><\/div>\n  <h2>Borrowing<\/h2><div id=\"g-borrow\"><\/div>\n  <h2>Family lending<\/h2><div id=\"g-family\"><\/div>\n  <h2>Safety rules<\/h2><div id=\"g-rules\"><\/div>\n<\/aside>\n\n<main id=\"top\">\n  <button class=\"btn jump\" id=\"toSettings\" type=\"button\">Jump to settings<\/button>\n  <div class=\"scen\" id=\"scen\" role=\"group\" aria-label=\"Price scenario\"><\/div>\n\n  <div class=\"verdict safe\" id=\"verdict\" aria-live=\"polite\">\n    <h2 id=\"vTitle\"><\/h2><p id=\"vText\"><\/p><p id=\"vText2\"><\/p>\n  <\/div>\n\n  <section class=\"block\" style=\"margin-top:0\">\n    <h3>Loan-to-value over time<\/h3>\n    <p class=\"hint\">LTV is the share of the vault's value you owe. Cross the red line and Aave sells your Bitcoin. Drag across the chart to move through time.<\/p>\n    <div class=\"chart\"><svg id=\"c1\" role=\"img\"><\/svg>\n      <div class=\"legend\"><span><i style=\"border-color:var(--ink)\"><\/i>LTV<\/span><span><i style=\"border-color:var(--green)\"><\/i>Borrowing cap<\/span><span><i style=\"border-color:var(--amber)\"><\/i>Rescue trigger<\/span><span><i style=\"border-color:var(--red)\"><\/i>Liquidation<\/span><\/div>\n    <\/div>\n    <div class=\"scrub\">\n      <button class=\"btn\" id=\"play\" type=\"button\">Play<\/button>\n      <input type=\"range\" id=\"scrub\" min=\"0\" max=\"60\" value=\"60\" aria-label=\"Month\">\n      <span class=\"when\" id=\"when\"><\/span>\n    <\/div>\n    <div class=\"readout\" id=\"readout\"><\/div>\n  <\/section>\n\n  <section class=\"block\">\n    <div class=\"two\">\n      <div><h3>Bitcoin price<\/h3><p class=\"hint\">The path this scenario follows.<\/p><div class=\"chart\"><svg id=\"c2\" role=\"img\"><\/svg><\/div><\/div>\n      <div><h3>Family wealth<\/h3><p class=\"hint\">Vault plus pool, against a plain vault that never borrows.<\/p>\n        <div class=\"chart\"><svg id=\"c3\" role=\"img\"><\/svg>\n        <div class=\"legend\"><span><i style=\"border-color:var(--gold)\"><\/i>Family bank<\/span><span><i style=\"border-color:var(--muted);border-top-style:dashed\"><\/i>Plain vault<\/span><\/div><\/div><\/div>\n    <\/div>\n  <\/section>\n\n  <section class=\"block\">\n    <h3>What happened<\/h3>\n    <p class=\"hint\">Rescues and liquidations along this path.<\/p>\n    <ul class=\"events\" id=\"events\"><\/ul>\n  <\/section>\n\n  <section class=\"block\">\n    <h3>Every scenario, your settings<\/h3>\n    <p class=\"hint\">Same inputs and same price noise across all paths. Click a scenario to open it.<\/p>\n    <div class=\"tablewrap\"><table id=\"stress\"><thead><tr><th>Scenario<\/th><th>Peak LTV<\/th><th>Outcome<\/th><th>Family bank<\/th><th>Plain vault<\/th><th>Gap<\/th><\/tr><\/thead><tbody><\/tbody><\/table><\/div>\n  <\/section>\n<\/main>\n<\/div>\n\n<footer>Educational model, not financial, tax, or legal advice. It ignores taxes, trading and custody fees, platform-specific rules such as partial liquidations, and protocol or counterparty risk. Real platforms can change rates and terms, and real drawdowns move faster than a monthly chart shows.<\/footer>\n<\/div>\n\n<script>\n/* ---------- model ---------- */\nconst SCEN = {\n  bull:   {name:'Bull run',            desc:'Price climbs steadily to 4x.',                         wp:[[0,1],[1,4]]},\n  flat:   {name:'Sideways',            desc:'Drifts, then ends where it started.',                   wp:[[0,1],[0.5,1.1],[1,1]]},\n  crash:  {name:'70% drawdown',        desc:'Falls 70% about a third of the way in, then recovers partway.', wp:[[0,1],[0.35,0.3],[1,0.6]]},\n  peak:   {name:'Bull, then bust',     desc:'Rises 2.5x, then drops 70% from the peak.',            wp:[[0,1],[0.4,2.5],[0.62,0.75],[1,1.4]]},\n  early:  {name:'Crash first',         desc:'Falls 70% early, then climbs to 3x the start.',        wp:[[0,1],[0.15,0.3],[1,3]]},\n  custom: {name:'Custom',              desc:'Straight line to the ending multiple you set.',        wp:null}\n};\nconst P = {btc0:2, price0:100000, dca:1000, years:5, vol:6, customEnd:0.5,\n  draw:20, cap:30, apr:8, keep:false,\n  famRate:12, util:70, loss:3, repay:2,\n  rescueOn:true, rescue:55, liq:80, pen:5};\nconst DEFAULTS = JSON.parse(JSON.stringify(P));\nlet seed = 7, Z = [];\nfunction rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}\nfunction makeNoise(){const r=rng(seed);Z=[];for(let i=0;i<=121;i++){const u=Math.max(r(),1e-9),v=r();Z.push(Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v));}}\nfunction mult(wp,t){\n  for(let i=1;i<wp.length;i++){\n    if(t<=wp[i][0]){const a=wp[i-1],b=wp[i],u=(t-a[0])/((b[0]-a[0])||1);\n      return Math.exp(Math.log(a[1])+u*(Math.log(b[1])-Math.log(a[1])));}\n  }\n  return wp[wp.length-1][1];\n}\nfunction sim(p,key){\n  const n=p.years*12;\n  const wp = key==='custom' ? [[0,1],[1,Math.max(0.01,p.customEnd)]] : SCEN[key].wp;\n  const rows=[], ev=[];\n  let btc=p.btc0, hb=p.btc0, D=0, C=0, F=0, liqd=false, rescues=0, liqs=0, peak=0, peakM=0, btcSold=0, usdSold=0, lastRescue=-9;\n  const relend=()=>{const tf=p.util/100*(C+F); if(F<tf){const x=tf-F;F+=x;C-=x;}};\n  const borrow=(amt)=>{D+=amt;C+=amt;relend();};\n  for(let m=0;m<=n;m++){\n    const price=p.price0*mult(wp,m/n)*(m===0?1:Math.exp(p.vol/100*Z[m]));\n    if(m>0){\n      btc+=p.dca/price; hb+=p.dca/price;\n      const extInt=D*p.apr/100/12, famInt=F*p.famRate/100/12;\n      F-=F*p.loss/100/12;\n      C+=famInt;\n      if(C>=extInt){C-=extInt;}else{D+=extInt-C;C=0;}\n      const rep=F*p.repay/100; F-=rep; C+=rep;\n      relend();\n    }\n    let V=btc*price;\n    const target=Math.min(p.draw,p.cap)/100;\n    if(m===0){ if(target>0&&V>0) borrow(target*V); }\n    else if(p.keep && !liqd && D<target*V){ borrow(target*V-D); }\n    let ltv=V>0?D/V:0;\n    const pre=ltv;\n    if(p.rescueOn && D>0 && ltv>=p.rescue/100){\n      const need=D-p.cap/100*V, x=Math.min(C,Math.max(need,0));\n      if(x>0){\n        D-=x; C-=x; rescues++;\n        if(m-lastRescue>1) ev.push({m,type:'rescue',text:`LTV reached ${(ltv*100).toFixed(0)}%. The pool repaid ${usd(x)} of the loan.`});\n        lastRescue=m;\n        ltv=D/V;\n      }\n    }\n    const shown=Math.max(pre,ltv);\n    if(D>0 && ltv>=p.liq/100){\n      const sold=Math.min(btc,D*(1+p.pen/100)/price);\n      btc-=sold; btcSold+=sold; usdSold+=sold*price; liqs++; liqd=true;\n      ev.push({m,type:'liq',text:`LTV hit ${(ltv*100).toFixed(0)}%. Aave sold ${sold.toFixed(3)} BTC (${usd(sold*price)}) to clear ${usd(D)} of debt.`});\n      D=0; V=btc*price;\n    }\n    if(shown>peak){peak=shown;peakM=m;}\n    rows.push({m,price,btc,V,D,C,F,ltv:shown,poolEq:C+F-D,net:V+C+F-D,hodl:hb*price});\n  }\n  const last=rows[rows.length-1];\n  return {rows,ev,n,peak,peakM,rescues,liqs,btcSold,usdSold,\n    outcome: liqs>0?'liquidated':(rescues>0?'rescued':'safe'),\n    endNet:last.net, endHodl:last.hodl};\n}\nfunction usd(v){\n  const a=Math.abs(v), s=v<0?'-':'';\n  if(a>=1e6) return s+'$'+(a/1e6).toFixed(2)+'M';\n  if(a>=1e5) return s+'$'+Math.round(a/1e3)+'k';\n  if(a>=1e3) return s+'$'+(a/1e3).toFixed(1)+'k';\n  return s+'$'+Math.round(a);\n}\nconst pct=v=>(v*100).toFixed(0)+'%';\n\n/* ---------- controls ---------- */\nconst CONTROLS=[\n  {g:'g-vault',id:'btc0',t:'num',label:'Starting Bitcoin (BTC)',step:0.01,min:0},\n  {g:'g-vault',id:'price0',t:'num',label:'Bitcoin price at the start ($)',step:1000,min:1},\n  {g:'g-vault',id:'dca',t:'num',label:'Added to the vault each month ($)',step:100,min:0},\n  {g:'g-vault',id:'years',t:'range',label:'Years to simulate',min:1,max:10,step:1,fmt:v=>v+' yr'},\n  {g:'g-path',id:'vol',t:'range',label:'Month-to-month price noise',min:0,max:15,step:1,fmt:v=>v+'%'},\n  {g:'g-path',id:'customEnd',t:'num',label:'Custom: ending price as a multiple of the start (0.5 = half)',step:0.1,min:0.01,only:'custom'},\n  {g:'g-path',id:'reshuffle',t:'btn',label:'Reshuffle the noise'},\n  {g:'g-borrow',id:'draw',t:'range',label:'Borrow at the start (% of vault)',min:0,max:50,step:1,fmt:v=>v+'%'},\n  {g:'g-borrow',id:'cap',t:'range',label:'Never borrow past (% of vault)',min:5,max:60,step:1,fmt:v=>v+'%'},\n  {g:'g-borrow',id:'apr',t:'range',label:'Aave borrow rate (a year)',min:0,max:25,step:0.5,fmt:v=>v+'%'},\n  {g:'g-borrow',id:'keep',t:'check',label:'Borrow more as the vault grows, up to the starting percentage'},\n  {g:'g-family',id:'famRate',t:'range',label:'Rate the family charges (a year)',min:0,max:30,step:0.5,fmt:v=>v+'%'},\n  {g:'g-family',id:'util',t:'range',label:'Share of the pool lent out',min:0,max:100,step:5,fmt:v=>v+'%'},\n  {g:'g-family',id:'loss',t:'range',label:'Family loans that go bad (a year)',min:0,max:20,step:0.5,fmt:v=>v+'%'},\n  {g:'g-family',id:'repay',t:'range',label:'Members repay (% of loans each month)',min:0,max:10,step:0.5,fmt:v=>v+'%'},\n  {g:'g-rules',id:'rescueOn',t:'check',label:'Auto-rescue: the pool repays debt when LTV gets high'},\n  {g:'g-rules',id:'rescue',t:'range',label:'Rescue trigger (LTV)',min:20,max:75,step:1,fmt:v=>v+'%'},\n  {g:'g-rules',id:'liq',t:'range',label:'Aave sells your Bitcoin at (LTV)',min:60,max:95,step:1,fmt:v=>v+'%'},\n  {g:'g-rules',id:'pen',t:'range',label:'Liquidation penalty',min:0,max:15,step:1,fmt:v=>v+'%'}\n];\nlet scen='crash', scrubM=60, timer=null;\nconst el=id=>document.getElementById(id);\n\nfunction buildControls(){\n  CONTROLS.forEach(c=>{\n    const box=el(c.g), d=document.createElement('div'); d.className='field'; d.dataset.id=c.id;\n    if(c.t==='range'){\n      d.innerHTML=`<label for=\"i-${c.id}\"><span>${c.label}<\/span><output id=\"o-${c.id}\"><\/output><\/label><input type=\"range\" id=\"i-${c.id}\" min=\"${c.min}\" max=\"${c.max}\" step=\"${c.step}\" value=\"${P[c.id]}\">`;\n    } else if(c.t==='num'){\n      d.innerHTML=`<label for=\"i-${c.id}\"><span>${c.label}<\/span><\/label><input type=\"number\" id=\"i-${c.id}\" min=\"${c.min}\" step=\"${c.step}\" value=\"${P[c.id]}\" inputmode=\"decimal\">`;\n    } else if(c.t==='check'){\n      d.className='check'; d.innerHTML=`<input type=\"checkbox\" id=\"i-${c.id}\" ${P[c.id]?'checked':''}><label for=\"i-${c.id}\">${c.label}<\/label>`;\n    } else {\n      d.innerHTML=`<button type=\"button\" class=\"btn\" id=\"i-${c.id}\">${c.label}<\/button>`;\n    }\n    box.appendChild(d);\n    const inp=el('i-'+c.id);\n    if(c.t==='btn'){ inp.addEventListener('click',()=>{seed=(seed*7919+13)%100003;makeNoise();update();}); return; }\n    const sync=()=>{ if(c.t==='range') el('o-'+c.id).textContent=c.fmt(P[c.id]); };\n    sync();\n    inp.addEventListener('input',()=>{\n      if(c.t==='check') P[c.id]=inp.checked;\n      else { let v=parseFloat(inp.value); if(!isFinite(v)) v=c.t==='num'?c.min:P[c.id]; P[c.id]=Math.max(c.min??0,v); }\n      sync();\n      if(c.id==='years'){ scrubM=P.years*12; }\n      update();\n    });\n  });\n}\nfunction buildScen(){\n  const box=el('scen'); box.innerHTML='';\n  Object.keys(SCEN).forEach(k=>{\n    const b=document.createElement('button'); b.type='button';\n    b.setAttribute('aria-pressed',k===scen); b.innerHTML=`<strong>${SCEN[k].name}<\/strong><span>${SCEN[k].desc}<\/span>`;\n    b.addEventListener('click',()=>{scen=k;scrubM=P.years*12;update();});\n    box.appendChild(b);\n  });\n  document.querySelector('[data-id=\"customEnd\"]').style.display = scen==='custom'?'':'none';\n}\n\n/* ---------- charts ---------- */\nconst PAD={l:50,r:12,t:12,b:24};\nfunction chart(svg,o){\n  const W=Math.max(260,svg.clientWidth||svg.parentNode.clientWidth||600), H=o.h||260;\n  svg.setAttribute('viewBox',`0 0 ${W} ${H}`); svg.setAttribute('height',H);\n  const n=o.n, x=m=>PAD.l+m/n*(W-PAD.l-PAD.r), y=v=>PAD.t+(1-(v-o.yMin)/(o.yMax-o.yMin))*(H-PAD.t-PAD.b);\n  let s='';\n  if(o.zoneFrom!=null) s+=`<rect class=\"zone\" x=\"${PAD.l}\" y=\"${PAD.t}\" width=\"${W-PAD.l-PAD.r}\" height=\"${Math.max(0,y(o.zoneFrom)-PAD.t)}\"/>`;\n  for(let i=0;i<=4;i++){const v=o.yMin+(o.yMax-o.yMin)*i/4;\n    s+=`<line class=\"gridl\" x1=\"${PAD.l}\" x2=\"${W-PAD.r}\" y1=\"${y(v)}\" y2=\"${y(v)}\"/><text x=\"${PAD.l-6}\" y=\"${y(v)+4}\" text-anchor=\"end\">${o.fmt(v)}<\/text>`;}\n  const yrs=n/12, step=yrs>6?2:1;\n  for(let k=0;k<=yrs;k+=step){ s+=`<text x=\"${x(k*12)}\" y=\"${H-6}\" text-anchor=\"${k===0?'start':'middle'}\">${k===0?'Start':'Yr '+k}<\/text>`; }\n  s+=`<line class=\"axis\" x1=\"${PAD.l}\" x2=\"${W-PAD.r}\" y1=\"${y(o.yMin)}\" y2=\"${y(o.yMin)}\"/>`;\n  (o.lines||[]).forEach(l=>{ s+=`<line class=\"${l.cls}\" x1=\"${PAD.l}\" x2=\"${W-PAD.r}\" y1=\"${y(l.v)}\" y2=\"${y(l.v)}\"/><text class=\"${l.tcls}\" x=\"${PAD.l+6}\" y=\"${y(l.v)-4}\">${l.label}<\/text>`; });\n  o.series.forEach(se=>{\n    const d=se.y.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(Math.min(o.yMax,Math.max(o.yMin,v))).toFixed(1)).join('');\n    s+=`<path class=\"${se.cls}\" d=\"${d}\"/>`;\n  });\n  (o.marks||[]).forEach(mk=>{ s+=`<circle class=\"${mk.cls}\" cx=\"${x(mk.m)}\" cy=\"${y(Math.min(o.yMax,mk.v))}\" r=\"5\"/>`; });\n  const cm=o.cursor;\n  s+=`<line class=\"cur\" x1=\"${x(cm)}\" x2=\"${x(cm)}\" y1=\"${PAD.t}\" y2=\"${H-PAD.b}\"/>`;\n  o.series.forEach(se=>{ if(se.dot) s+=`<circle class=\"${se.dot}\" cx=\"${x(cm)}\" cy=\"${y(Math.min(o.yMax,Math.max(o.yMin,se.y[cm])))}\" r=\"4\"/>`; });\n  svg.innerHTML=s; svg.setAttribute('aria-label',o.aria);\n  svg._geo={W,n};\n}\nfunction attachScrub(svg){\n  const go=e=>{ const g=svg._geo; if(!g) return; const r=svg.getBoundingClientRect();\n    const m=Math.round((e.clientX-r.left-PAD.l)/(g.W-PAD.l-PAD.r)*g.n); setScrub(Math.max(0,Math.min(g.n,m))); };\n  svg.addEventListener('pointerdown',e=>{go(e);svg.setPointerCapture&&svg.setPointerCapture(e.pointerId);svg._drag=true;});\n  svg.addEventListener('pointermove',e=>{ if(svg._drag||e.pointerType==='mouse') go(e); });\n  svg.addEventListener('pointerup',()=>{svg._drag=false;});\n}\n\n/* ---------- render ---------- */\nlet cur=null;\nfunction setScrub(m){ scrubM=m; renderCharts(); renderReadout(); }\nfunction update(){\n  P.rescue=Math.min(P.rescue,P.liq-1);\n  const n=P.years*12; scrubM=Math.min(scrubM,n);\n  const sc=el('scrub'); sc.max=n;\n  cur=sim(P,scen);\n  buildScen();\n  renderVerdict(); renderCharts(); renderReadout(); renderEvents(); renderStress();\n}\nfunction renderVerdict(){\n  const r=cur, v=el('verdict'); v.className='verdict '+r.outcome;\n  const yr=m=>(m/12).toFixed(1);\n  let t,x;\n  if(r.outcome==='safe'){ t='The vault held'; x=`Peak LTV was ${pct(r.peak)} in month ${r.peakM} (year ${yr(r.peakM)}), well under the ${P.liq}% liquidation line. The pool never needed to step in.`; }\n  else if(r.outcome==='rescued'){ t='Held, with the pool\\u2019s help'; x=`LTV climbed to ${pct(r.peak)} at its worst. The pool repaid part of the loan ${r.rescues} time${r.rescues>1?'s':''}, which pulled LTV back toward ${P.cap}% before Aave could act.`; }\n  else { t='Liquidated in month '+r.ev.find(e=>e.type==='liq').m; x=`Aave sold ${r.btcSold.toFixed(3)} BTC (${usd(r.usdSold)}) to clear the loan. The family keeps the pool, but the vault is permanently smaller, and it did not get that Bitcoin back when the price recovered.`; }\n  const d=r.endNet-r.endHodl;\n  const yrsTxt=P.years+' year'+(P.years>1?'s':'');\n  el('vTitle').textContent=t; el('vText').textContent=x;\n  el('vText2').textContent=`After ${yrsTxt} the family bank is worth ${usd(r.endNet)} against ${usd(r.endHodl)} for a plain vault that never borrows: ${usd(Math.abs(d))} ${d>=0?'ahead':'behind'}.`;\n}\nfunction renderCharts(){\n  const r=cur, rows=r.rows, n=r.n, m=Math.min(scrubM,n);\n  const ltvMax=Math.max(P.liq/100*1.15, r.peak*1.08, 0.5);\n  chart(el('c1'),{n,h:290,yMin:0,yMax:Math.min(1.2,ltvMax),fmt:v=>pct(v),zoneFrom:P.liq/100,cursor:m,\n    series:[{y:rows.map(q=>q.ltv),cls:'s-ltv',dot:'dot-ltv'}],\n    lines:[{v:P.cap/100,cls:'h-cap',tcls:'t-cap',label:'Cap '+P.cap+'%'},\n           ...(P.rescueOn?[{v:P.rescue/100,cls:'h-rescue',tcls:'t-rescue',label:'Rescue '+P.rescue+'%'}]:[]),\n           {v:P.liq/100,cls:'h-liq',tcls:'t-liq',label:'Liquidation '+P.liq+'%'}],\n    marks:r.ev.map(e=>({m:e.m,v:rows[e.m].ltv,cls:e.type==='liq'?'ev-liq':'ev-rescue'})),\n    aria:`Loan-to-value over ${P.years} years. Peak ${pct(r.peak)}. Outcome: ${r.outcome}.`});\n  const pMax=Math.max(...rows.map(q=>q.price))*1.08;\n  chart(el('c2'),{n,h:220,yMin:0,yMax:pMax,fmt:v=>usd(v),cursor:m,series:[{y:rows.map(q=>q.price),cls:'s-price'}],\n    aria:`Bitcoin price path, from ${usd(rows[0].price)} to ${usd(rows[n].price)}.`});\n  const wMax=Math.max(...rows.map(q=>Math.max(q.net,q.hodl)))*1.08;\n  chart(el('c3'),{n,h:220,yMin:0,yMax:wMax,fmt:v=>usd(v),cursor:m,\n    series:[{y:rows.map(q=>q.hodl),cls:'s-hodl',dot:'dot-hodl'},{y:rows.map(q=>q.net),cls:'s-sys',dot:'dot-sys'}],\n    aria:`Family bank wealth ${usd(rows[n].net)} versus plain vault ${usd(rows[n].hodl)} at the end.`});\n  el('scrub').value=m;\n  el('when').textContent=`Month ${m} \\u00b7 year ${(m/12).toFixed(1)}`;\n}\nfunction renderReadout(){\n  const q=cur.rows[Math.min(scrubM,cur.n)];\n  const zone=q.ltv>=P.liq/100?'bad':(q.ltv>=P.rescue/100&&P.rescueOn)||q.ltv>P.cap/100?'warn':'ok';\n  const row=(a,b,c)=>`<div class=\"r\"><dt>${a}<\/dt><dd class=\"${c||''}\">${b}<\/dd><\/div>`;\n  const gap=q.net-q.hodl;\n  el('readout').innerHTML=\n   `<div><h4>Vault<\/h4><dl>${row('Bitcoin price',usd(q.price))}${row('Bitcoin held',q.btc.toFixed(3)+' BTC')}${row('Vault value',usd(q.V))}<\/dl><\/div>`+\n   `<div><h4>Loan<\/h4><dl>${row('Owed to Aave',usd(q.D))}${row('LTV',pct(q.ltv),zone)}${row('Room before liquidation',q.D>0?usd(Math.max(0,q.V-q.D/(P.liq/100))):'No loan')}<\/dl><\/div>`+\n   `<div><h4>Family pool<\/h4><dl>${row('Cash on hand',usd(q.C))}${row('Lent to family',usd(q.F))}${row('Pool minus loan',usd(q.poolEq),q.poolEq<0?'warn':'')}<\/dl><\/div>`+\n   `<div><h4>Bottom line<\/h4><dl>${row('Family bank',usd(q.net))}${row('Plain vault',usd(q.hodl))}${row('Gap',(gap>=0?'+':'')+usd(gap),gap>=0?'ok':'warn')}<\/dl><\/div>`;\n}\nfunction renderEvents(){\n  const ul=el('events'); const ev=cur.ev;\n  if(!ev.length){ ul.innerHTML=`<li>Nothing to report. LTV never reached the rescue trigger on this path.<\/li>`; return; }\n  ul.innerHTML=ev.map(e=>`<li><span class=\"tag ${e.type==='liq'?'bad':'warn'}\">${e.type==='liq'?'Liquidated':'Rescue'}<\/span>Month ${e.m}. ${e.text}<\/li>`).join('');\n}\nfunction renderStress(){\n  const keys=Object.keys(SCEN).filter(k=>k!=='custom'||scen==='custom');\n  const tb=document.querySelector('#stress tbody'); tb.innerHTML='';\n  keys.forEach(k=>{\n    const r=sim(P,k), d=r.endNet-r.endHodl;\n    const tr=document.createElement('tr'); if(k===scen) tr.className='sel';\n    const lab={safe:['Held','ok'],rescued:['Rescued','warn'],liquidated:['Liquidated','bad']}[r.outcome];\n    tr.innerHTML=`<td><button type=\"button\">${SCEN[k].name}<\/button><\/td><td class=\"num\">${pct(r.peak)}<\/td><td class=\"pill ${lab[1]}\">${lab[0]}<\/td><td class=\"num\">${usd(r.endNet)}<\/td><td class=\"num\">${usd(r.endHodl)}<\/td><td class=\"num ${d>=0?'ok':'warn'}\">${d>=0?'+':''}${usd(d)}<\/td>`;\n    tr.querySelector('button').addEventListener('click',()=>{scen=k;scrubM=P.years*12;update();window.scrollTo({top:0,behavior:'smooth'});});\n    tb.appendChild(tr);\n  });\n}\n\n/* ---------- play ---------- */\nfunction stopPlay(){ if(timer){clearInterval(timer);timer=null;} el('play').textContent='Play'; }\nel('play').addEventListener('click',()=>{\n  if(timer){stopPlay();return;}\n  if(scrubM>=cur.n) scrubM=0;\n  el('play').textContent='Pause';\n  timer=setInterval(()=>{ if(scrubM>=cur.n){stopPlay();return;} setScrub(scrubM+1); },140);\n});\nel('scrub').addEventListener('input',e=>{stopPlay();setScrub(parseInt(e.target.value,10));});\n\n/* ---------- presets (used when embedded in the course) ---------- */\nfunction applyPreset(pr){\n  Object.assign(P, JSON.parse(JSON.stringify(DEFAULTS)), pr.params||{});\n  scen = pr.scen || 'crash';\n  seed = 7; makeNoise();\n  CONTROLS.forEach(c=>{\n    if(c.t==='btn') return;\n    const inp=document.getElementById('i-'+c.id); if(!inp) return;\n    if(c.t==='check') inp.checked=!!P[c.id]; else inp.value=P[c.id];\n    if(c.t==='range') document.getElementById('o-'+c.id).textContent=c.fmt(P[c.id]);\n  });\n  stopPlay(); scrubM=P.years*12; update();\n}\nwindow.addEventListener('message',e=>{ const d=e.data; if(d && d.type==='bwsPreset') applyPreset(d); });\nel('resetAll').addEventListener('click',()=>applyPreset({scen:'crash'}));\nel('toSettings').addEventListener('click',()=>el('settings').scrollIntoView({behavior:'smooth'}));\nel('toTop').addEventListener('click',()=>el('top').scrollIntoView({behavior:'smooth'}));\nif(window.parent!==window) document.documentElement.classList.add('embed');\n\n/* ---------- init ---------- */\nmakeNoise(); buildControls(); scrubM=P.years*12;\n['c1','c2','c3'].forEach(id=>attachScrub(el(id)));\nupdate();\nif(window.ResizeObserver){ let t; new ResizeObserver(()=>{clearTimeout(t);t=setTimeout(renderCharts,60);}).observe(document.querySelector('main')); }\n<\/script>\n<\/body>\n<\/html>\n";
+const SCREEN = [
+ ["Scenario buttons","Which price path is running","Click one to switch. Custom draws a straight line to an ending multiple you set, such as 0.5 for half the starting price."],
+ ["Verdict banner","Held (green), rescued (amber), or liquidated (red), plus the final gap against a plain vault","Read this first on every run."],
+ ["LTV chart","Loan owed divided by vault value, month by month, against the cap, rescue, and liquidation lines","Drag across it to move through time. Dots mark each rescue and each liquidation."],
+ ["Play and month slider","The same timeline, one month per step","Press Play to watch a crash unfold, or drag the slider to stop on a month."],
+ ["Readout","Vault, loan, family pool, and bottom line at the month you picked","Check the room before liquidation: the extra drop in vault value the loan can take before Aave sells."],
+ ["Price and wealth charts","The Bitcoin price path, and family bank wealth against a plain vault that never borrows","If the gold line sits under the dashed line, the borrowing is costing more than it earns."],
+ ["What happened","Every rescue and liquidation with the month and dollar amounts","Use it to see when the pool stepped in."],
+ ["Every scenario table","All scenarios on your current settings, with peak LTV and outcome","Click a row to open that scenario. It is the fastest way to find a setting that breaks."]
+];
+const SETTINGS = [
+ ["Vault","Starting Bitcoin","2 BTC","The Bitcoin in the vault on day one."],
+ ["Vault","Bitcoin price at the start","$100,000","Sets the starting vault value. Scenarios are multiples of this price."],
+ ["Vault","Added each month","$1,000","Dollars converted to Bitcoin at that month's price and added to the vault."],
+ ["Vault","Years to simulate","5","Length of the run, 1 to 10 years. Scenario shapes stretch to fit."],
+ ["Price path","Month-to-month noise","6%","Random wiggle on top of the scenario line. 0% gives a smooth path."],
+ ["Price path","Reshuffle the noise","n/a","Draws a new random wiggle. Use it to see if a result depends on luck."],
+ ["Price path","Custom ending multiple","0.5","Shows only when Custom is selected. 0.5 ends at half the starting price."],
+ ["Borrowing","Borrow at the start","20%","Share of the vault's value borrowed on day one."],
+ ["Borrowing","Never borrow past","30%","Hard cap on LTV when borrowing. The lower of this and the starting share is used."],
+ ["Borrowing","Aave borrow rate","8% a year","Interest on the loan, paid monthly from the pool's cash. Aave's rate moves with demand, so use today's number."],
+ ["Borrowing","Borrow more as the vault grows","Off","When on, the family borrows again each month to stay at the starting percentage. This lifts both the income and the risk."],
+ ["Family lending","Rate the family charges","12% a year","Interest members pay the pool on loans."],
+ ["Family lending","Share of the pool lent out","70%","The rest stays as cash. That cash is what the auto-rescue uses."],
+ ["Family lending","Loans that go bad","3% a year","Share of outstanding family loans written off each year."],
+ ["Family lending","Members repay","2% a month","Share of loans repaid each month. Repaid money is lent out again to hold the lending share."],
+ ["Safety rules","Auto-rescue","On","When LTV hits the trigger, the pool's cash repays debt, aiming to bring LTV back to the cap."],
+ ["Safety rules","Rescue trigger","55%","LTV at which the rescue fires."],
+ ["Safety rules","Aave sells at","80%","LTV at which Aave liquidates. Use Aave's liquidation threshold for Bitcoin."],
+ ["Safety rules","Liquidation penalty","5%","Extra Bitcoin sold on top of the debt. Aave calls this the liquidation bonus."]
+];
+const EXPS = [
+ {id:"e1",title:"Does the rescue rule matter?",
+  goal:"Compare the same crash with and without the pool stepping in.",
+  look:"Compare the red dot on the LTV chart with the amber one, and the gap on the banner.",
+  variants:[
+   {label:"Load with rescue off",scen:"crash",params:{draw:30,rescueOn:false},note:"Borrowing 30%, auto-rescue off."},
+   {label:"Load with rescue on",scen:"crash",params:{draw:30},note:"Borrowing 30%, auto-rescue on."}],
+  expect:"With auto-rescue off, the loan is liquidated at about 81% LTV and the family ends about $48k behind a plain vault. With it on, the vault is rescued at about 57% peak LTV and ends about $3k behind."},
+ {id:"e2",title:"How much cash must the pool keep?",
+  goal:"See what the rescue can do when the pool lends out everything.",
+  look:"Watch whether an amber rescue dot appears, and how the outcome changes as more cash is held back.",
+  variants:[
+   {label:"100% lent out",scen:"crash",params:{draw:30,util:100},note:"Borrowing 30%, rescue on, 100% of the pool lent out."},
+   {label:"70% lent out",scen:"crash",params:{draw:30,util:70},note:"Borrowing 30%, rescue on, 70% lent out."},
+   {label:"50% lent out",scen:"crash",params:{draw:30,util:50},note:"Borrowing 30%, rescue on, 50% lent out."}],
+  expect:"At 100% lent out, rescue has no cash to work with and the vault is liquidated. At 70% and 50% it holds. Holding back more cash costs a little income: at 50% the family ends about $6k behind. The cash you leave idle is your insurance premium."},
+ {id:"e3",title:"When does lending to family pay?",
+  goal:"Find out how much of the result comes from the family rate, bad loans, and idle cash.",
+  look:"Read the gap against the plain vault on the banner and in the table.",
+  variants:[
+   {label:"Best case: 20%, no bad loans",scen:"flat",params:{famRate:20,loss:0,util:100},note:"Sideways market, 20% family rate, no bad loans, all lent out."},
+   {label:"Defaults: 12%",scen:"flat",params:{},note:"Sideways market with default settings."},
+   {label:"Cheap loans: 8%",scen:"flat",params:{famRate:8},note:"Sideways market, family rate cut to 8%."}],
+  expect:"The best case finishes about $41k ahead of a plain vault. The defaults finish about $4k behind. At 8% the family bank is about $10k behind. The loop wins only when members pay more than Aave charges plus the loans that go bad. The 20% case is a best case, not a plan."},
+ {id:"e4",title:"Is borrowing a free lunch in a bull run?",
+  goal:"Check what borrowing adds when prices only go up.",
+  look:"Look at the wealth chart: is the gold line above or below the dashed one?",
+  variants:[{label:"Load the bull run",scen:"bull",params:{},note:"Bull run on the default settings."}],
+  expect:"The family bank ends about $4k behind a plain vault, even though nothing went wrong. Borrowing helps only if the money does something better than the interest costs. This model credits only the pool's lending income."},
+ {id:"e5",title:"Does the baseline hold?",
+  goal:"Confirm that any gap you see comes from the loan.",
+  look:"The gap should read zero in every scenario.",
+  variants:[{label:"Borrow nothing",scen:"flat",params:{draw:0},note:"No borrowing on the sideways path."}],
+  expect:"With nothing borrowed, the family bank and the plain vault are the same thing, so the gap is zero in every scenario."}
+];
+
+let simLoaded=false, simPending=null, labTab='sim', simFull=false, pollT=null;
+const frame=()=>$("#simFrame");
+function selectTab(name,focus){
+  labTab=name;
+  $$("#p8 .tabs button").forEach(b=>{const on=b.dataset.tab===name;b.setAttribute("aria-selected",on);b.tabIndex=on?0:-1; if(on&&focus) b.focus();});
+  ["exp","sim"].forEach(t=>{$("#tab-"+t).hidden = t!==name;});
+  if(name==="sim"){ ensureSim(); startPoll(); } else stopPoll();
+  if(name!=="sim") window.scrollTo(0,0);
+}
+function ensureSim(){
+  const f=frame(); if(f.dataset.ready) return; f.dataset.ready="1";
+  f.addEventListener("load",()=>{ simLoaded=true; if(simPending){ f.contentWindow.postMessage(simPending,"*"); simPending=null; } });
+  f.srcdoc = SIM_HTML.replace('<html lang="en">','<html lang="en" data-theme="dark">');
+}
+function sendPreset(msg){
+  if(simLoaded) frame().contentWindow.postMessage(msg,"*"); else simPending=msg;
+}
+function goLab(tab){
+  labTab=tab; closeMenu();
+  if(location.hash==="#p8") show("p8"); else location.hash="p8";
+}
+function loadPreset(scen,params,title,note,look){
+  goLab("sim");
+  sendPreset({type:"bwsPreset",scen,params:params||{}});
+  const b=$("#expBanner");
+  if(title){ b.hidden=false; b.innerHTML=`<b>${title}</b>${note?" | "+note:""}${look?`<br><span class="q-meta">What to look for: ${look}</span>`:""}`; }
+  else b.hidden=true;
+}
+function startPoll(){
+  stopPoll();
+  pollT=setInterval(()=>{
+    if(simFull) return;
+    try{ const d=frame().contentDocument; if(d&&d.documentElement){ const h=d.documentElement.scrollHeight; if(h>300) frame().style.height=(h+4)+"px"; } }catch(e){}
+  },600);
+}
+function stopPoll(){ if(pollT){clearInterval(pollT);pollT=null;} }
+function setFull(on){
+  simFull=on; $("#simBox").classList.toggle("full",on);
+  document.body.style.overflow = on?"hidden":"";
+  if(!on) frame().style.height="1500px";
+}
+function buildLab(){
+  $$("#p8 .tabs button").forEach(b=>{
+    b.addEventListener("click",()=>selectTab(b.dataset.tab));
+    b.addEventListener("keydown",e=>{
+      const order=["exp","sim"], i=order.indexOf(b.dataset.tab);
+      if(e.key==="ArrowRight"||e.key==="ArrowLeft"){selectTab(order[(i+1)%2],true);e.preventDefault();}
+    });
+  });
+  $$("[data-open-sim]").forEach(b=>b.addEventListener("click",()=>goLab("sim")));
+  $$("[data-open-exp]").forEach(b=>b.addEventListener("click",()=>goLab("exp")));
+  $("#navSim").addEventListener("click",()=>goLab("sim"));
+  $("#qs-safe").addEventListener("click",()=>loadPreset("crash",{},"Default run","70% drawdown, 20% borrowed, auto-rescue on.","Press Play and watch LTV cross the amber line."));
+  $("#qs-bad").addEventListener("click",()=>loadPreset("crash",{draw:30,rescueOn:false},"Liquidation run","70% drawdown, 30% borrowed, auto-rescue off.","The banner turns red as LTV reaches the liquidation line."));
+  $("#screenTbl").innerHTML = SCREEN.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+  const groups=["All",...new Set(SETTINGS.map(s=>s[0]))];
+  $("#setChips").innerHTML = groups.map((g,i)=>`<button type="button" aria-pressed="${i===0}" data-g="${g}">${g}</button>`).join("");
+  const drawSet=g=>{ $("#setTbl").innerHTML = SETTINGS.filter(s=>g==="All"||s[0]===g).map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join(""); };
+  drawSet("All");
+  $$("#setChips button").forEach(b=>b.addEventListener("click",()=>{ $$("#setChips button").forEach(x=>x.setAttribute("aria-pressed",x===b)); drawSet(b.dataset.g); }));
+  S.checks.exp=S.checks.exp||{};
+  $("#expList").innerHTML = EXPS.map((e,i)=>`<div class="exp"><h3>${i+1}. ${e.title}</h3><p>${e.goal}</p><div class="vars">${e.variants.map((v,j)=>`<button class="btn" type="button" data-e="${i}" data-v="${j}">${v.label}</button>`).join("")}</div><details class="qa"><summary>What to expect</summary><p>${e.expect}</p></details><label class="done"><input type="checkbox" data-done-e="${e.id}"> I ran this experiment</label></div>`).join("");
+  $$("#expList [data-e]").forEach(b=>b.addEventListener("click",()=>{ const e=EXPS[+b.dataset.e], v=e.variants[+b.dataset.v]; loadPreset(v.scen,v.params,`Experiment ${+b.dataset.e+1}: ${e.title}`,v.note,e.look); }));
+  $$("#expList [data-done-e]").forEach(cb=>{ cb.checked=!!S.checks.exp[cb.dataset.doneE]; cb.addEventListener("change",()=>{S.checks.exp[cb.dataset.doneE]=cb.checked;save();}); });
+  $("#sim-full").addEventListener("click",()=>setFull(true));
+  $("#sim-exit").addEventListener("click",()=>setFull(false));
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&simFull) setFull(false); });
+  $("#sim-reset").addEventListener("click",()=>{ $("#expBanner").hidden=true; sendPreset({type:"bwsPreset",scen:"crash",params:{}}); });
+  $("#sim-tab").addEventListener("click",()=>{
+    const url=URL.createObjectURL(new Blob([SIM_HTML],{type:"text/html"})); window.open(url,"_blank");
+  });
+}
+
+/* ============ reset ============ */
+$("#resetBtn").addEventListener("click",()=>{
+  if(!confirm("Clear all progress, checklists, notes, and flashcards in this browser?")) return;
+  try{localStorage.removeItem(KEY);}catch(e){}
+  location.reload();
+});
+
+/* ============ init ============ */
+buildNav(); buildMap(); buildChecks(); buildFooters(); bindCalcs(); bindBuilder(); bindCards(); renderQuiz(); buildLab();
+show(location.hash.slice(1)||"p0");
+</script>
+</body>
+</html>
